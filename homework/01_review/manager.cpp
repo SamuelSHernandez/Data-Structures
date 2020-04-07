@@ -38,11 +38,12 @@ void addPlayer(int &numPlayers, Player *&players, string name, int score) {
 
       if (players[i].getName() != name && score > minimum) {
         players[i].setName(name);
-        Leaderboard_out << name;
+        Leaderboard_out << name << " " << score;
       } else if (numPlayers > 10 || numPlayers < 0) {
         cout << "The number of players is invalid!";
       }
     }
+    Player(score, name);
   }
 
   Leaderboard_out.close();

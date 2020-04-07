@@ -14,6 +14,7 @@
 
 #include "manager.h"
 
+
 using namespace std;
 void printPlayers(ofstream &outFile, int numPlayers, Player *players);
 

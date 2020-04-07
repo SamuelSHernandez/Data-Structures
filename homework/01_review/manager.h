@@ -7,10 +7,11 @@
  * Date:      April 2, 2019
  */
 
-#include "player.h"
 #include <iostream>
 #include <string>
 using namespace std;
+
+#include "player.h"
 
 class Manager {
 public:
