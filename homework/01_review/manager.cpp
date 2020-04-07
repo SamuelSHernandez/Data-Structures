@@ -32,6 +32,7 @@ void addPlayer(int &numPlayers, Player *&players, string name, int score) {
     cout << "cannot open file: \" user_input.txt \" " << endl;
   }
   minimum = (score < minimum) ? score : minimum;
+
   if (numPlayers <= 10) {
     // TO DO: Add player to file
     for (int i = 0; i < numPlayers; i++) {
@@ -48,7 +49,15 @@ void addPlayer(int &numPlayers, Player *&players, string name, int score) {
   Leaderboard_out.close();
 }
 
-int searchPlayers(int numPlayers, Player *players, string target) { return 69; }
+int searchPlayers(int numPlayers, Player *players, string target) { 
+    int playerIndex;
+    for(int i = 0; i < numPlayers; i++){
+        if(players[i].getName() == target){
+            i = playerIndex;
+        }
+    }
+    return playerIndex;
+ }
 void removePlayer(int &numPlayers, Player *&players, string target) {
   cout << target;
 }
