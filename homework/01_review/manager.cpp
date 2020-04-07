@@ -23,7 +23,6 @@ void addPlayer(int &numPlayers, Player *&players, string name, int score) {
 
   ofstream Leaderboard_out;
   string PlayerName;
-  int PlayerScore;
   int minimum = 1;
 
   Leaderboard_out.open("user_input.txt"); // open file

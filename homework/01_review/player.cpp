@@ -11,21 +11,11 @@
 #include <string>
 using namespace std;
 
-Player::Player() : name(""), score(0) {
-}
+Player::Player() : name(""), score(0) {}
 
-Player::Player(int newScore, string newName) : name(newName), score(newScore) {
-}
+Player::Player(int newScore, string newName) : name(newName), score(newScore) {}
 
-void Player::setName(string newName) {
-    name = newName;
-}
-void Player::setScore(int newScore) {
-    score = newScore;
-}
-string Player::getName() {
-    return name;
-}
-int Player::getScore() {
-    return score;
-}
+void Player::setName(string newName) { name = newName; }
+void Player::setScore(int newScore) { score = newScore; }
+string Player::getName() { return name; }
+int Player::getScore() { return score; }
