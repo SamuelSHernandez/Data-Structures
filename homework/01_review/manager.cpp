@@ -49,15 +49,15 @@ void addPlayer(int &numPlayers, Player *&players, string name, int score) {
   Leaderboard_out.close();
 }
 
-int searchPlayers(int numPlayers, Player *players, string target) { 
-    int playerIndex;
-    for(int i = 0; i < numPlayers; i++){
-        if(players[i].getName() == target){
-            i = playerIndex;
-        }
+int searchPlayers(int numPlayers, Player *players, string target) {
+  int playerIndex = 0;
+  for (int i = 0; i < numPlayers; i++) {
+    if (players[i].getName() == target) {
+      i = playerIndex;
     }
-    return playerIndex;
- }
+  }
+  return playerIndex;
+}
 void removePlayer(int &numPlayers, Player *&players, string target) {
   cout << target;
 }
