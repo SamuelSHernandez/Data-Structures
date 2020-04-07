@@ -59,13 +59,10 @@ int searchPlayers(int numPlayers, Player *players, string target) {
   return playerIndex;
 }
 void removePlayer(int &numPlayers, Player *&players, string target) {
-  cout << target;
+
+  for (int i = 0; i < numPlayers; i++) {
+    if (players[i].getName() == target) {
+      players[i].setName("");
+    }
+  }
 }
-// TO DO: if no score provided, score = -1
-
-// close file
-
-/*if (numPlayers > 10) {
-
-
-    */
