@@ -19,14 +19,15 @@ using namespace std;
 
 #include "manager.h"
 
-void Manager::addPlayer(int &numPlayers, Player *&players, string name, int score) {
+void Manager::addPlayer(int &numPlayers, Player *&players, string name,
+                        int score) {
 
   ofstream Leaderboard_out;
   string PlayerName;
   int minimum = 1;
-//TO DO: Delete file i/o
-//TO DO: Copy array into array with size + 1
-//TO DO: Sort by score 
+  // TO DO: Delete file i/o
+  // TO DO: Copy array into array with size + 1
+  // TO DO: Sort by score
   Leaderboard_out.open("user_input.txt"); // open file
   PlayerName = name;
   if (!Leaderboard_out) {
@@ -52,7 +53,7 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name, int scor
 }
 
 int Manager::searchPlayers(int numPlayers, Player *players, string target) {
-    //TO DO: Return Player's score
+  // TO DO: Return Player's score
   int playerIndex = 0;
   for (int i = 0; i < numPlayers; i++) {
     if (players[i].getName() == target) {
@@ -63,7 +64,7 @@ int Manager::searchPlayers(int numPlayers, Player *players, string target) {
 }
 void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
 
-//TO DO: Copy array into array with size - 1.  if player-> do not copy
+  // TO DO: Copy array into array with size - 1.  if player-> do not copy
   for (int i = 0; i < numPlayers; i++) {
     if (players[i].getName() == target) {
       players[i].setName("");
