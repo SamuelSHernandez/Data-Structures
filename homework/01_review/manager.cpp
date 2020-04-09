@@ -24,7 +24,13 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
 
   // TO DO: Copy array into array with size + 1
   // TO DO: Sort by score
+  Player newArray[9];
 
+  for (int i = 0; i < numPlayers; i++) {
+
+    newArray[i] = players[i];
+  }
+  players[numPlayers + 1].setName(name);
   /* for (int i = 0; i < numPlayers; i++) {
 players->setName(name);
 players->setScore(score);
