@@ -22,11 +22,11 @@ using namespace std;
 void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
 
-  Player addPlayerArray[9];
+  Player* addPlayerArray[9];
 
   for (int i = 0; i < numPlayers; i++) {
 
-    addPlayerArray[i] = players[i];
+    addPlayerArray[i] = &players[i];
   }
 
   // TO DO: Copy array into array with size + 1
