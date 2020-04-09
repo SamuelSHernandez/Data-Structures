@@ -24,39 +24,38 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
 
   // TO DO: Copy array into array with size + 1
   // TO DO: Sort by score
-  Player newArray[9];
 
-  for (int i = 0; i < numPlayers; i++) {
-
-    newArray[i] = players[i];
-  }
-  players[numPlayers + 1].setName(name);
-  /* for (int i = 0; i < numPlayers; i++) {
-players->setName(name);
-players->setScore(score);
-}
-  */
-}
-
-int Manager::searchPlayers(int numPlayers, Player *players, string target) {
-
-  int playerScore = 0;
-  // TO DO: Return Player's score
-  for (int i = 0; i < numPlayers; i++) {
-    if (players[i].getName() == target) {
-      playerScore = players[i].getScore();
+  if (numPlayers > 10) {
+    numPlayers += 1;
+    Player *AddTemp = new Player[numPlayers];
+    for (int i = 0; i < numPlayers; i++) {
+      AddTemp[i] = players[i];
+      players[numPlayers].setName(name);
+      players = AddTemp;
+      delete[] AddTemp;
     }
   }
-  return playerScore;
-}
-void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
-  /* Player *addPlayerArray[8];
 
+  int Manager::searchPlayers(int numPlayers, Player *players, string target) {
+
+    int playerScore = 0;
+    // TO DO: Return Player's score
     for (int i = 0; i < numPlayers; i++) {
+      if (players[i].getName() == target) {
+        playerScore = players[i].getScore();
+      }
+    }
+    return playerScore;
+  }
+  void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
 
-      addPlayerArray[i] = &players[i];
-      cout << &addPlayerArray[i];
-    }*/
-
-  // TO DO: Copy array into array with size - 1.  if player-> do not copy
-}
+    if (numPlayers > 10) {
+      numPlayers -= 1;
+      Player *AddTemp = new Player[numPlayers];
+      for (int i = 0; i < numPlayers; i++) {
+        AddTemp[i] = players[i];
+        players = AddTemp;
+        delete[] AddTemp;
+      }
+    }
+  }
