@@ -23,6 +23,8 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
 
   // TO DO: Copy array into array with size + 1
+  int minScore = 0;
+  minScore = min(players[0].getScore(), players[numPlayers - 1].getScore());
 
   if (numPlayers < 10) {
     numPlayers += 1;
@@ -33,16 +35,19 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
 
     players = AddTemp;
     players[numPlayers - 1].setName(name);
-    players[numPlayers - 1].setScore(score);
+    if (cin.fail()) {
+      players[numPlayers - 1].setScore(-1);
+    } else {
+        players[numPlayers -1].setScore(score);
+    }
 
     delete[] AddTemp;
   } else {
-    int minScore = 0;
-    minScore = min(players[0].getScore(), players[numPlayers - 1].getScore());
+
     for (int i = 0; i < numPlayers; i++) {
       if (players[i].getScore() == minScore) {
-        players[numPlayers - 1].setName(name);
-        players[numPlayers - 1].setScore(score);
+        players[i].setName(name);
+        players[i].setScore(score);
       }
     }
   }
