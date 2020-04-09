@@ -23,7 +23,6 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
 
   // TO DO: Copy array into array with size + 1
-  // TO DO: Sort by score
 
   if (numPlayers > 10) {
     numPlayers += 1;
