@@ -8,7 +8,7 @@
  * Date:     4/2/20
  *
  */
-
+#include <algorithm>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -24,16 +24,29 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
 
   // TO DO: Copy array into array with size + 1
 
-  if (numPlayers > 10) {
+  if (numPlayers < 10) {
     numPlayers += 1;
     Player *AddTemp = new Player[numPlayers];
     for (int i = 0; i < numPlayers; i++) {
       AddTemp[i] = players[i];
-      players[numPlayers].setName(name);
-      players = AddTemp;
-      delete[] AddTemp;
+    }
+
+    players = AddTemp;
+    players[numPlayers - 1].setName(name);
+    players[numPlayers - 1].setScore(score);
+
+    delete[] AddTemp;
+  } else {
+    int minScore = 0;
+    minScore = min(players[0].getScore(), players[numPlayers - 1].getScore());
+    for (int i = 0; i < numPlayers; i++) {
+      if (players[i].getScore() == minScore) {
+        players[numPlayers - 1].setName(name);
+        players[numPlayers - 1].setScore(score);
+      }
     }
   }
+  // TO DO: else for greater than 10 (/)
 }
 
 int Manager::searchPlayers(int numPlayers, Player *players, string target) {
@@ -48,14 +61,20 @@ int Manager::searchPlayers(int numPlayers, Player *players, string target) {
   return playerScore;
 }
 void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
+  // TO DO: Remove target
 
-  if (numPlayers > 10) {
+  if (numPlayers < 10) {
+
     numPlayers -= 1;
     Player *AddTemp = new Player[numPlayers];
     for (int i = 0; i < numPlayers; i++) {
+      if (players[i].getName() == target) {
+      }
       AddTemp[i] = players[i];
-      players = AddTemp;
-      delete[] AddTemp;
     }
+
+    players = AddTemp;
+
+    delete[] AddTemp;
   }
 }
