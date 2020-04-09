@@ -22,12 +22,13 @@ using namespace std;
 void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
 
-  Player* addPlayerArray[9];
+   
 
-  for (int i = 0; i < numPlayers; i++) {
-
-    addPlayerArray[i] = &players[i];
-  }
+  /* for (int i = 0; i < numPlayers; i++) {
+players->setName(name);
+players->setScore(score);
+}
+  */
 
   // TO DO: Copy array into array with size + 1
   // TO DO: Sort by score
@@ -44,11 +45,11 @@ int Manager::searchPlayers(int numPlayers, Player *players, string target) {
 }
 void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
 
-  Player addPlayerArray[8];
+  Player *addPlayerArray[8];
 
   for (int i = 0; i < numPlayers; i++) {
 
-    addPlayerArray[i] = players[i];
+    addPlayerArray[i] = &players[i];
     cout << &addPlayerArray[i];
   }
   // TO DO: Copy array into array with size - 1.  if player-> do not copy
