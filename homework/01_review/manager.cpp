@@ -45,7 +45,7 @@ int Manager::searchPlayers(int numPlayers, Player *players, string target) {
 void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
 
   Player addPlayerArray[8];
-  bool Player = false;
+
   for (int i = 0; i < numPlayers; i++) {
 
     addPlayerArray[i] = players[i];
