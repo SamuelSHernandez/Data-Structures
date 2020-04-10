@@ -31,14 +31,17 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
     Player *AddTemp = new Player[numPlayers];
     for (int i = 0; i < numPlayers; i++) {
       AddTemp[i] = players[i];
+      cout << "FLAG 1" << endl;
     }
 
     players = AddTemp;
     players[numPlayers - 1].setName(name);
     if (cin.fail()) {
       players[numPlayers - 1].setScore(-1);
+      cout << "FLAG 2" << endl;
     } else {
-        players[numPlayers -1].setScore(score);
+      players[numPlayers - 1].setScore(score);
+      cout << "FLAG 3" << endl;
     }
 
     delete[] AddTemp;
