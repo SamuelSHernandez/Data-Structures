@@ -19,31 +19,28 @@ using namespace std;
 
 void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
-  comparisons = 0; // make sure there comparison size = 0
-  location = 0;
+  if (list.size() != 0) {
 
-  for (int i = 0; i < list.size(); i++) {
-    comparisons++;
-    switch (key.ComparedTo(list[i])) {
-    case LESS:
-      // Do something for less than
-      break;
-    case GREATER:
-      // Do something for greater than
-      break;
-    case EQUAL:
+    location = 0;    // location starts at root of vector
+    comparisons = 0; // make sure there comparison size = 0
 
-      location = i;
+    for (int i = 0; i < list.size(); i++) {
+      comparisons++;
+      switch (key.ComparedTo(list[i])) {
+      case LESS:
+        break;
+      case GREATER:
+        break;
+      case EQUAL:
+        location = i;
+        break;
+      }
 
-      // Do something for equal
-      // TO DO: make the loop stop
-      break;
-    }
-
-    if (key.ComparedTo(list[i]) == EQUAL) {
-      break;
-    } else if (!key.ComparedTo(list[i])) {
-      location = -1;
+      if (key.ComparedTo(list[i]) == EQUAL) {
+        break;
+      } else if (!key.ComparedTo(list[i])) {
+        location = -1;
+      }
     }
   }
 }
