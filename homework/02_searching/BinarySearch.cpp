@@ -17,8 +17,8 @@ using namespace std;
 #include "ItemType.h"
 
 // TODO implement search
-static void Search(vector<ItemType> list, ItemType key, int &location,
-                   int &comparisons) {
+void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
+                          int &comparisons) {
 
   comparisons = 0; // make sure there comparison size = 0
   location = 0;

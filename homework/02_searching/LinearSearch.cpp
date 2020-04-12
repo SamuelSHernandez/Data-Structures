@@ -18,8 +18,8 @@ using namespace std;
 
 // TODO implement search;
 
-static void Search(vector<ItemType> list, ItemType key, int &location,
-                   int &comparisons) {
+void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
+                          int &comparisons) {
   comparisons = 0; // make sure there comparison size = 0
   assert(list.size() != 0);
 
