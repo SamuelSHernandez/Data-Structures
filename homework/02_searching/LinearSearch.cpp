@@ -35,7 +35,7 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
       break;
     case EQUAL:
       comparisons++;
-      location = i + 1;
+      location = i;
       if (key.ComparedTo(list[i]) == EQUAL) {
         break;
       }
@@ -45,6 +45,7 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
     }
     if (comparisons > list.size()) {
       location = -1;
-    }
+    } 
+
   }
 }
