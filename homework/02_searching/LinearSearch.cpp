@@ -18,8 +18,6 @@ using namespace std;
 
 // TODO implement search;
 
-// ERROR (line 28): Invalid conversion between vector of ItemType and ItemType
-
 static void Search(vector<ItemType> list, ItemType key, int &location,
                    int &comparisons) {
   comparisons = 0; // make sure there comparison size = 0

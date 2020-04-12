@@ -8,6 +8,7 @@
  * Date:       4/12/20
  */
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -19,20 +20,23 @@ using namespace std;
 static void Search(vector<ItemType> list, ItemType key, int &location,
                    int &comparisons) {
 
-  enum RelationType { LESS, GREATER, EQUAL };
-  
+  comparisons = 0; // make sure there comparison size = 0
+  assert(list.size() != 0);
+
   ItemType midpoint;
   ItemType midValue;
-
-  switch (0) {
-  case LESS:
-    // Do something for less than
-    break;
-  case GREATER:
-    // Do something for greater than
-    break;
-  case EQUAL:
-    // Do something for equal
-    break;
+  for (int i = 0; i < list.size(); i++) {
+    switch (key.ComparedTo(list[i])) {
+    case LESS:
+      midpoint = list.at(i);
+      // Do something for less than
+      break;
+    case GREATER:
+      // Do something for greater than
+      break;
+    case EQUAL:
+      // Do something for equal
+      break;
+    }
   }
 }
