@@ -38,8 +38,9 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
       case EQUAL:
         comparisons++;
         location = i + 1;
+        break;
         // Do something for equal
-        //TO DO: make the loop stop
+        // TO DO: make the loop stop
         break;
       }
     }
