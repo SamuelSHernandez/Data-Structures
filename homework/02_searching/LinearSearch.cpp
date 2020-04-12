@@ -8,7 +8,6 @@
  * Date:        today
  */
 #include <algorithm>
-#include <cassert>
 #include <iostream>
 #include <vector>
 
@@ -21,23 +20,30 @@ using namespace std;
 void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
   comparisons = 0; // make sure there comparison size = 0
-  assert(list.size() != 0);
+  location = 0;
+  if (list.size() != 0) {
 
-  for (int i = 0; i < list.size(); i++) {
-    switch (key.ComparedTo(list[i])) {
-    case LESS:
-      // Do something for less than
-      comparisons++;
-      break;
-    case GREATER:
-      // Do something for greater than
-      comparisons++;
-      break;
-    case EQUAL:
-      comparisons++;
-      location = i + 1;
-      // Do something for equal
-      break;
+    for (int i = 0; i < list.size(); i++) {
+      if (!key.ComparedTo(list[i])) {
+        location = -1;
+      }
+      switch (key.ComparedTo(list[i])) {
+      case LESS:
+        // Do something for less than
+        comparisons++;
+        break;
+      case GREATER:
+        // Do something for greater than
+        comparisons++;
+        break;
+      case EQUAL:
+        comparisons++;
+        location = i + 1;
+        // Do something for equal
+        break;
+      }
     }
+  } else {
+    location = -1;
   }
 }
