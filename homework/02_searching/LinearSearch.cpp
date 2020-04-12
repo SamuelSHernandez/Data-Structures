@@ -19,7 +19,7 @@ using namespace std;
 
 void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
-  comparisons = 0; // make sure there comparison size = 0
+  comparisons = -1; // make sure there comparison size = 0
   location = 0;
 
   for (int i = 0; i < list.size(); i++) {
@@ -27,11 +27,14 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
     switch (key.ComparedTo(list[i])) {
     case LESS:
       // Do something for less than
+      comparisons++;
       break;
     case GREATER:
       // Do something for greater than
+      comparisons++;
       break;
     case EQUAL:
+      comparisons++;
 
       location = i;
       if (key.ComparedTo(list[i]) == EQUAL) {
