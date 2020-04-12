@@ -9,6 +9,7 @@
 #define LINEAR_SEARCH_H
 
 #include "vector"
+#include <cassert>
 
 #include "ItemType.h"
 // File ItemType.h must be provided by the user of this class.
