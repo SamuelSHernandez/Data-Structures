@@ -31,7 +31,7 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
         location = i;
         break;
       } else if (key.ComparedTo(list[0]) == LESS ||
-                 key.ComparedTo(list[i]) > key.ComparedTo(list[i + 1])) {
+                 key.ComparedTo(list[i]) >= key.ComparedTo(list[i + 1])) {
         location = -1;
         break;
 
