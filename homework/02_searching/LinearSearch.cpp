@@ -39,8 +39,9 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
 
       if (key.ComparedTo(list[i]) == EQUAL) {
         break;
-      } else if (!key.ComparedTo(list[i]) ||
-                 key.ComparedTo(list[i]) == GREATER) {
+      } else if (!key.ComparedTo(list[i])) {
+        location = -1;
+      } else if (key.ComparedTo(list[i]) == GREATER) {
         location = -1;
         break;
       }
