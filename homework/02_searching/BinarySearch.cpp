@@ -21,8 +21,6 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
   location = 0;
   comparisons = 0; // make sure there comparison size = 0
-  int size;
-
 
   if (list.size() != 0) {
 
