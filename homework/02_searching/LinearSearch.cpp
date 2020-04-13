@@ -30,13 +30,13 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
       if (key.ComparedTo(list[i]) == EQUAL) {
         location = i;
         break;
-      } else if (key.ComparedTo(list[0]) == LESS) {
+      } else if (key.ComparedTo(list[0]) == LESS ||
+                 key.ComparedTo(list[i]) > key.ComparedTo(list[i + 1])) {
         location = -1;
         break;
 
       } else if (key.ComparedTo(list[i]) == GREATER) {
         location = -1;
-        break;
       }
     }
   }
