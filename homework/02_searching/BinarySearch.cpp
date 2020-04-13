@@ -23,7 +23,6 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
   comparisons = 0; // make sure there comparison size = 0
   int size;
 
-  sort(list.begin(), list.end()); // make sure list is sorted
 
   if (list.size() != 0) {
 
