@@ -19,29 +19,27 @@ using namespace std;
 // TODO implement search
 void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
-
-  comparisons = 0; // make sure there comparison size = 0
   location = 0;
+  comparisons = 0; // make sure there comparison size = 0
+  int size;
+
+  sort(list.begin(), list.end()); // make sure list is sorted
 
   if (list.size() != 0) {
 
     for (int i = 0; i < list.size(); i++) {
       comparisons++;
-      if (comparisons > list.size()) {
-        break;
-      }
+
       switch (key.ComparedTo(list[i])) {
       case LESS:
-        Search(list, key, location, comparisons);
+
         // Do something for less than
         break;
       case GREATER:
-        Search(list, key, location, comparisons);
 
         // Do something for greater than
         break;
       case EQUAL:
-        // Do something for equal
         location = i;
         break;
       }
@@ -53,28 +51,3 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
     }
   }
 }
-/*
-
-  ItemType midpoint;
-  ItemType midValue;
-  for (int i = 0; i < list.size(); i++) {
-    switch (key.ComparedTo(list[i])) {
-    case LESS:
-      comparisons++;
-      Search(list, key, location, comparisons);
-      location = i;
-      // Do something for less than
-      break;
-    case GREATER:
-      Search(list, key, location, comparisons);
-      comparisons++;
-      location = i;
-      // Do something for greater than
-      break;
-    case EQUAL:
-      // Do something for equal
-      comparisons++;
-      location = i + 1;
-      break;
-    }
-  } */
