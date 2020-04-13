@@ -21,16 +21,18 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
   if (list.size() != 0) {
 
-    location = 0;    // location starts at root of vector
+    location = -1;   // location starts at root of vector
     comparisons = 0; // make sure there comparison size = 0
 
     for (int i = 0; i < list.size(); i++) {
-
+      location = 0;
       comparisons++;
       switch (key.ComparedTo(list[i])) {
       case LESS:
+
         break;
       case GREATER:
+
         break;
       case EQUAL:
         location = i;
