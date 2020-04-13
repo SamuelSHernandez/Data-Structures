@@ -26,19 +26,9 @@ void LinearSearch::Search(vector<ItemType> list, ItemType key, int &location,
 
     for (int i = 0; i < list.size(); i++) {
       comparisons++;
-      switch (key.ComparedTo(list[i])) {
-      case LESS:
-
-        break;
-      case GREATER:
-
-        break;
-      case EQUAL:
-        location = i;
-        break;
-      }
 
       if (key.ComparedTo(list[i]) == EQUAL) {
+        location = i;
         break;
       } else if (key.ComparedTo(list[0]) == LESS) {
         break;
