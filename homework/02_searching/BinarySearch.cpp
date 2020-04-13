@@ -30,16 +30,10 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
       switch (key.ComparedTo(list[i])) {
       case LESS:
 
-        for (int l = 0; l < list.size() / 2; l++) {
-          list.erase(list.begin(), list.begin() + (list.size() / 2));
-        }
-
         // Do something for less than
         break;
       case GREATER:
-        for (int g = 0; g < list.size() / 2; g++) {
-          list.erase(list.begin() + (list.size() / 2), list.end());
-        }
+
         // Do something for greater than
         break;
       case EQUAL:
