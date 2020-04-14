@@ -36,6 +36,7 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
         break;
       } else if (key.ComparedTo(list[midPoint]) == LESS) {
         high = midPoint - 1;
+        location = -1;
       } else if (key.ComparedTo(list[0]) == LESS) {
         location = -1;
         break;
