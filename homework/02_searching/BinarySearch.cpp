@@ -25,19 +25,14 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
   int midPoint = (low + high) / 2;
   while (low <= high) {
     comparisons++;
-    switch (key.ComparedTo(list[midPoint])) {
-    case LESS:
-      // Do something for less than
-      high = midPoint - 1;
-      break;
-    case GREATER:
-      // Do something for greater than
-      low = midPoint + 1;
-      break;
-    case EQUAL:
-      // Do something for equal
+
+    if (key.ComparedTo(list[midPoint]) == EQUAL) {
       location = midPoint;
       break;
+    } else if (key.ComparedTo(list[midPoint]) == LESS) {
+      high = midPoint - 1;
+    } else {
+      low = midPoint + 1;
     }
   }
 }
