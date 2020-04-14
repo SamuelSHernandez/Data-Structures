@@ -21,25 +21,59 @@ using namespace std;
 
 void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
-
-  int minScore = min(players[0].getScore(), players[numPlayers - 1].getScore());
+  int minScore = 0;
 
   if (numPlayers < 10) {
-    numPlayers += 1;
-    Player *AddTemp = new Player[numPlayers];
+    players->setName(name);
+  } else {
+
+    players->setName(name);
+    // sets scores
+    if (players->getScore() == minScore) {
+      players->setName(name);
+      players->setScore(score);
+    }
+  }
+}
+
+int Manager::searchPlayers(int numPlayers, Player *players, string target) {
+  int playerScore = 0;
+  // finds target player and returns score
+  for (int i = 0; i < numPlayers; i++) {
+    if (players[i].getName() == target) {
+      playerScore = players[i].getScore();
+    }
+  }
+  return playerScore;
+}
+void Manager::removePlayer(int &numPlayers, Player *&players, string target) {}
+
+/*
+
+ADD PLAYER
+++++++++++++++++++++++++++++
+  // gets lowest score from players
+  // add min function
+  //check indexes
+
+  if (numPlayers < 10) {
+    // copies array into temporary dynamic array
+    Player *AddTemp = new Player[numPlayers + 1];
     for (int i = 0; i < numPlayers; i++) {
       AddTemp[i] = players[i];
     }
+    // refils player array
     players = AddTemp;
-
-    players[numPlayers - 1].setName(name);
+    // set name
+    players[numPlayers].setName(name);
+    // set score
     if (cin.fail()) {
-      players[numPlayers - 1].setScore(-1);
+      players[numPlayers].setScore(-1);
 
     } else {
-      players[numPlayers - 1].setScore(score);
+      players[numPlayers].setScore(score);
     }
-
+    // clears temporary array
     delete[] AddTemp;
   } else {
     // replace lowest score
@@ -50,30 +84,32 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
       }
     }
   }
-}
 
-int Manager::searchPlayers(int numPlayers, Player *players, string target) {
-
+++++++++++++++++++++++++++++
+SEARCH PLAYER
+++++++++++++++++++++++++++++
   int playerScore = 0;
-
+  // finds target player and returns score
   for (int i = 0; i < numPlayers; i++) {
     if (players[i].getName() == target) {
       playerScore = players[i].getScore();
     }
   }
   return playerScore;
-}
-void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
+++++++++++++++++++++++++++++
+REMOVE PLAYER
+++++++++++++++++++++++++++++
 
-  numPlayers -= 1;
-  Player *AddTemp = new Player[numPlayers];
+  // populate temporary array
+  Player *AddTemp = new Player[numPlayers - 1];
   for (int i = 0; i < numPlayers; i++) {
-    if (players[i].getName() == target) {
+    if (players[i].getName() != target) {
+      AddTemp[i] = players[i];
     }
-    AddTemp[i] = players[i];
   }
-
+  // copies temporary array back without target player
   players = AddTemp;
 
   delete[] AddTemp;
-}
+++++++++++++++++++++++++++++
+ */
