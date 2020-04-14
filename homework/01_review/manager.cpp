@@ -22,31 +22,27 @@ using namespace std;
 void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
 
-  // TO DO: Copy array into array with size + 1
-  int minScore = 0;
-  minScore = min(players[0].getScore(), players[numPlayers - 1].getScore());
+  int minScore = min(players[0].getScore(), players[numPlayers - 1].getScore());
 
   if (numPlayers < 10) {
     numPlayers += 1;
     Player *AddTemp = new Player[numPlayers];
     for (int i = 0; i < numPlayers; i++) {
       AddTemp[i] = players[i];
-      cout << "FLAG 1" << endl;
     }
-
     players = AddTemp;
+
     players[numPlayers - 1].setName(name);
     if (cin.fail()) {
       players[numPlayers - 1].setScore(-1);
-      cout << "FLAG 2" << endl;
+
     } else {
       players[numPlayers - 1].setScore(score);
-      cout << "FLAG 3" << endl;
     }
 
     delete[] AddTemp;
   } else {
-
+    // replace lowest score
     for (int i = 0; i < numPlayers; i++) {
       if (players[i].getScore() == minScore) {
         players[i].setName(name);
@@ -54,13 +50,12 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
       }
     }
   }
-  // TO DO: else for greater than 10 (/)
 }
 
 int Manager::searchPlayers(int numPlayers, Player *players, string target) {
 
   int playerScore = 0;
-  // TO DO: Return Player's score
+
   for (int i = 0; i < numPlayers; i++) {
     if (players[i].getName() == target) {
       playerScore = players[i].getScore();
@@ -69,20 +64,16 @@ int Manager::searchPlayers(int numPlayers, Player *players, string target) {
   return playerScore;
 }
 void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
-  // TO DO: Remove target
 
-  if (numPlayers < 10) {
-
-    numPlayers -= 1;
-    Player *AddTemp = new Player[numPlayers];
-    for (int i = 0; i < numPlayers; i++) {
-      if (players[i].getName() == target) {
-      }
-      AddTemp[i] = players[i];
+  numPlayers -= 1;
+  Player *AddTemp = new Player[numPlayers];
+  for (int i = 0; i < numPlayers; i++) {
+    if (players[i].getName() == target) {
     }
-
-    players = AddTemp;
-
-    delete[] AddTemp;
+    AddTemp[i] = players[i];
   }
+
+  players = AddTemp;
+
+  delete[] AddTemp;
 }
