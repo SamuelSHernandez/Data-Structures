@@ -19,6 +19,7 @@ using namespace std;
 // TODO implement search
 void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
                           int &comparisons) {
+
   if (list.size() != 0) {
     int low = 0;
     int high = list.size() - 1;
@@ -38,10 +39,7 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
         location = -1;
         break;
 
-      }  else if (key.ComparedTo(list[midPoint]) == GREATER){
-          location = -1;
-
-      }else {
+      } else {
         low = midPoint + 1;
       }
     }
