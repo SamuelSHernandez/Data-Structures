@@ -24,6 +24,7 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
     int low = 0;
     int high = list.size() - 1;
     comparisons = 0;
+    location = 0;
 
     while (low <= high) {
 
