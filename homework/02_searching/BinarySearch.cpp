@@ -23,11 +23,11 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
   if (list.size() != 0) {
     int low = 0;
     int high = list.size() - 1;
-    comparisons = 0;
+
     location = 0;
+    comparisons = 0;
 
     while (low <= high) {
-
       comparisons++;
       int midPoint = (low + high) / 2;
 
@@ -43,6 +43,7 @@ void BinarySearch::Search(vector<ItemType> list, ItemType key, int &location,
 
       } else {
         low = midPoint + 1;
+        location = -1;
       }
     }
   }
