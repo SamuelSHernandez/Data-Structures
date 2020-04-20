@@ -3,9 +3,9 @@
  * Homework: Implement a two recursive functions on a linked unsorted list.
  *
  * File Name:  minSort.cpp
- * Name:       ?
+ * Name:       hernsa
  * Course:     CPTR 242
- * Date:       ?
+ * Date:       Today
  *
  */
 #include "ItemType.h"
@@ -15,9 +15,38 @@ using namespace std;
 
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   // TODO Add recursive MinLoc.
-  return NULL;
+  NodeType *current = list;
+
+  while (current != NULL) {
+    if ((minPtr->info.ComparedTo(current->info) == EQUAL)) {
+      minPtr->info = current->info;
+      break;
+    }
+  }
+  return minPtr;
 }
+// Searching Algorithm: Binary Search(Recursive)
 
 void Sort(NodeType *list) {
-  // TODO Add recursive sort method that uses MinLoc.
+
+  // initialize sorted linked list
+  NodeType *sorted = NULL;
+
+  NodeType *current = list;
+
+  while (current != NULL) {
+    NodeType *next = current->next;
+
+    MinLoc(list, current);
+    // TO DO: ADD THE MINIMUM LOCATION THING
+    current = next;
+  }
+  list = sorted;
 }
+
+// Sorting Algorithm: Insertion Sort
+/*else if((minPtr->info.ComparedTo(current->info) == LESS)){
+
+    }else if((minPtr->info.ComparedTo(current->info) == GREATER)){
+
+    } */
