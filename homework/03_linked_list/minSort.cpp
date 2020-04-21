@@ -39,7 +39,7 @@ NodeType *current = list;
     sorted = MinLoc(current, next);
 
     current = next;
-    sorted = sorted->next;
+    
   }
   list = sorted;
 }
