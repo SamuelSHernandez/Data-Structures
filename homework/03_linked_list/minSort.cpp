@@ -34,9 +34,17 @@ void Sort(NodeType *list) {
 
   while (list != NULL) {
 
-    sorted = MinLoc(list, current);
-    current->info = sorted->info; // copies the sorted element to the current
-    current = list->next;         // iterates
+    if (sorted != NULL) { // once sorted head is set, move to the next element
+      sorted = MinLoc(list, current);
+      sorted = sorted->next;
+      current->info = sorted->info;
+      current = list->next;
+      list = list->next;
+    } else {
+      sorted = MinLoc(list, current);
+      current->info = sorted->info; // copies the sorted element to the current
+      current = list->next;         // iterates
+    }
   }
   list = sorted;
 }
