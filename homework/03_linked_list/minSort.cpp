@@ -35,7 +35,7 @@ void Sort(NodeType *list) {
 
   while (list != NULL) {
 
-    sorted = MinLoc(sorted, current);
+    sorted = MinLoc(list,current);
 
     list = list->next;
   }
