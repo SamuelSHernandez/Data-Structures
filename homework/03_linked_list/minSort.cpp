@@ -15,11 +15,10 @@ using namespace std;
 
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   // TODO Add recursive MinLoc.
-  NodeType *current = list;
 
-  while (current != NULL) {
-    if ((minPtr->info.ComparedTo(current->info) == EQUAL)) {
-      minPtr->info = current->info;
+  while (list != NULL) {
+    if ((minPtr->info.ComparedTo(list->info) == EQUAL)) {
+      minPtr->info = list->info;
       break;
     }
   }
@@ -43,10 +42,3 @@ void Sort(NodeType *list) {
   }
   list = sorted;
 }
-
-// Sorting Algorithm: Insertion Sort
-/*else if((minPtr->info.ComparedTo(current->info) == LESS)){
-
-    }else if((minPtr->info.ComparedTo(current->info) == GREATER)){
-
-    } */
