@@ -15,13 +15,20 @@ using namespace std;
 
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   // TODO Add recursive MinLoc.
+  NodeType *current;
 
-  while (list != NULL) {
-    if ((list->info.ComparedTo(minPtr->info) == GREATER) ||
-        list->info.ComparedTo(minPtr->info) == EQUAL) {
-      minPtr->info = list->info;
-    }
+  if (list != NULL) {
+
+    do {
+      if ((current->info.ComparedTo(minPtr->info) == GREATER) ||
+          current->info.ComparedTo(minPtr->info) == EQUAL) {
+        minPtr->info = current->info;
+      }
+      current = current->next;
+
+    } while (current != list);
   }
+
   return minPtr;
 }
 // Searching Algorithm: Binary Search(Recursive)
