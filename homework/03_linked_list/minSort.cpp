@@ -39,9 +39,9 @@ void Sort(NodeType *list) {
       // this works
     } else {
       current = MinLoc(list, sorted);
-      current = current->next;
-    }
 
+    }
+list = sorted;
     // outside
   }
 }
