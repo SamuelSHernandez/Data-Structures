@@ -14,7 +14,7 @@
 using namespace std;
 
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
-  // TODO Add recursive MinLoc.
+
   if (list == NULL) {
     minPtr = list;
   } else {
@@ -33,7 +33,7 @@ void Sort(NodeType *list) {
 
   while (list != NULL) {
     if (sorted != NULL) {
-      sorted = sorted->next;
+      sorted = MinLoc(list, current);
       list = list->next;
     } else {
       sorted = MinLoc(list, current);
