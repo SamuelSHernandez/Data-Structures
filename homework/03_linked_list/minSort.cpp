@@ -16,7 +16,10 @@ using namespace std;
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   // TODO Add recursive MinLoc.
 
-  NodeType *current = NULL;
+  NodeType *current = list;
+  if (list == NULL) {
+    minPtr->info = list->info;
+  }
 
   do {
     if ((current->info.ComparedTo(minPtr->info) == GREATER) ||
@@ -33,17 +36,17 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 
 void Sort(NodeType *list) {
 
-/*  // initialize sorted linked list
-  NodeType *sorted = NULL;
+  /*  // initialize sorted linked list
+    NodeType *sorted = NULL;
 
-  NodeType *current = list;
+    NodeType *current = list;
 
-  while (current != NULL) {
-    NodeType *next = current->next;
+    while (current != NULL) {
+      NodeType *next = current->next;
 
-    MinLoc(list, current);
-    // TO DO: ADD THE MINIMUM LOCATION THING
-    current = next;
-  }
-  list = sorted; */
+      MinLoc(list, current);
+      // TO DO: ADD THE MINIMUM LOCATION THING
+      current = next;
+    }
+    list = sorted; */
 }
