@@ -36,9 +36,7 @@ void Sort(NodeType *list) {
 
     if (sorted != NULL) { // once sorted head is set, move to the next element
       sorted = MinLoc(list, current);
-      sorted = sorted->next;
-      current->info = sorted->info;
-      current = list->next;
+      list->info = sorted->info;
       list = list->next;
     } else {
       sorted = MinLoc(list, current);
