@@ -36,12 +36,10 @@ void Sort(NodeType *list) {
     if (sorted == NULL) {
       sorted->info = list->info;
       list = list->next;
-      
 
     } else {
       sorted = MinLoc(list, current);
       current = current->next;
-      sorted = sorted->next;
     }
 
     // outside
