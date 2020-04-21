@@ -10,6 +10,7 @@
  */
 #include "ItemType.h"
 #include "unsorted.h"
+#include <list>
 
 using namespace std;
 
@@ -36,10 +37,11 @@ void Sort(NodeType *list) {
       sorted = sorted->next;
       list = list->next;
     } else {
-      sorted = MinLoc(list, current);
+      sorted = MinLoc(current, sorted);
       current->info = sorted->info; // copies the sorted element to the current
-      current = list->next;            // iterates
+
+      current = list->next; // iterates
     }
   }
-  list = sorted; // puts sorted list on original list
+  list = sorted;
 }
