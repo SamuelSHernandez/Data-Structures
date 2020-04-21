@@ -18,7 +18,7 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   if (list == NULL) {
     minPtr = list;
   } else {
-    if (minPtr->info.ComparedTo(list->info) == GREATER || minPtr->info.ComparedTo(list->info) == EQUAL) {
+    if (minPtr->info.ComparedTo(list->info) == GREATER) {
       minPtr = list;
     }
     list = list->next;
@@ -28,8 +28,22 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 }
 
 void Sort(NodeType *list) {
-
   NodeType *sorted = NULL;
+  NodeType *current = list;
+
+  while (current != NULL) {
+
+    NodeType *next = current->next;
+
+    MinLoc(sorted, next);
+
+    current = next;
+  }
+  list = sorted;
+}
+
+/*
+
   NodeType *current = list;
 
   while (list != NULL) {
@@ -39,5 +53,4 @@ void Sort(NodeType *list) {
     list = list->next;
   }
 
-  list = sorted;
-}
+  list = sorted; */
