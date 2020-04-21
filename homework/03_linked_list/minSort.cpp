@@ -28,16 +28,16 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 }
 
 void Sort(NodeType *list) {
-  NodeType *sorted = NULL;
-  NodeType *current = list;
+  NodeType *sorted = NULL;  // hold sorted list
+  NodeType *current = list; // transverse through the list
 
-  while (list != NULL) {
+  while (list != NULL) { // make sure list is not empty
     if (sorted != NULL) {
       sorted = MinLoc(list, current);
+      list->info = sorted->info;
       list = list->next;
     } else {
       sorted = MinLoc(list, current);
-      list->info = sorted->info;
       list = list->next;
     }
   }
