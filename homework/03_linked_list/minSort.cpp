@@ -36,7 +36,7 @@ void Sort(NodeType *list) {
 
     NodeType *next = current->next;
 
-    MinLoc(sorted, next);
+    sorted = MinLoc(sorted, next);
 
     current = next;
   }
