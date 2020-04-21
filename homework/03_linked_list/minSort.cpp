@@ -31,22 +31,9 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 void Sort(NodeType *list) {
   NodeType *sorted = NULL;  // holds the sorted list
   NodeType *current = list; // used for iterating through the list
-  NodeType *Trash = NULL;
-
-  while (current != NULL) {
-
-    sorted = MinLoc(list, current);
-    current->info = Trash->info;
-    sorted->info = list->info;
-    current = current->next;
-  }
-}
-
-/*
-  NodeType *sorted = NULL;  // holds the sorted list
-  NodeType *current = list; // used for iterating through the list
 
   while (list != NULL) {
+
     if (sorted != NULL) { // once sorted head is set, move to the next element
       sorted = sorted->next;
       list = list->next;
@@ -54,8 +41,10 @@ void Sort(NodeType *list) {
       sorted = MinLoc(list, current);
       current->info = sorted->info; // copies the sorted element to the current
       current = list->next;         // iterates
-
+    }
+    if (current->info.ComparedTo(sorted->info) == EQUAL) {
+      current = 0;
     }
   }
   list = sorted;
- */
+}
