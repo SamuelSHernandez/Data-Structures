@@ -38,10 +38,11 @@ void Sort(NodeType *list) {
       list = list->next;
     } else {
       sorted = MinLoc(list, current);
-      list = sorted;
+      sorted->info = list->info;
       list = list->next;
     }
   }
+  list = sorted;
 }
 
 /*
