@@ -15,7 +15,10 @@ using namespace std;
 
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   // TODO Add recursive MinLoc.
-
+  if(list == NULL){
+      minPtr = list;
+  }
+/*
   NodeType *current = list;
   if (list == NULL) {
     minPtr->info = list->info;
@@ -28,7 +31,7 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
     }
     current = current->next;
 
-  } while (current != list);
+  } while (current != list); */
 
   return minPtr;
 }
