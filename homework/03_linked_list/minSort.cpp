@@ -34,53 +34,24 @@ void Sort(NodeType *list) {
 
   while (list != NULL) {
 
-    sorted = MinLoc(list, current);
-    list->info = sorted->info;
+    current = MinLoc(list, sorted);
+    current->info = sorted->info;
     current = current->next;
   }
+  list = sorted;
 }
 
 /*
-
-
-
-
-
 NodeType *sorted = NULL;
-NodeType *current = list;
-
-  while (current != NULL) {
-
-    NodeType *next = current->next;
-
-    MinLoc(current, next);
-sorted = list;
-    current = next;
-  }
-  list = sorted;
-
-
-
-++++++++3
-  NodeType *sorted = NULL;
-  NodeType *current = list;
-
-  while (current != NULL) {
-    NodeType *next = current->next;
-    sorted = MinLoc(current, next);
-    current = next;
-  }
-  list = sorted;
-++++2
-
-+++1
   NodeType *current = list;
 
   while (list != NULL) {
+    if (sorted != NULL) {
+      sorted = sorted->next;
+      list = list->next;
+    } else {
+      sorted = MinLoc(list, current);
 
-    sorted = MinLoc(list, current);
-
-    list = list->next;
+    }
   }
-
-  list = sorted; */
+*/
