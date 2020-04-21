@@ -23,29 +23,26 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
     }
     list = list->next;
   }
-  /*
-    NodeType *current = list;
-    if (list == NULL) {
-      minPtr->info = list->info;
-    }
-
-    do {
-      if ((current->info.ComparedTo(minPtr->info) == GREATER) ||
-          current->info.ComparedTo(minPtr->info) == EQUAL) {
-        minPtr->info = current->info;
-      }
-      current = current->next;
-
-    } while (current != list); */
 
   return minPtr;
 }
-// Searching Algorithm: Binary Search(Recursive)
 
 void Sort(NodeType *list) {
 
-  /*  // initialize sorted linked list
-    NodeType *sorted = NULL;
+  NodeType *sorted = NULL;
+  NodeType *current = list;
+
+  while (list != NULL) {
+
+    MinLoc(list, current);
+
+    list = list->next;
+  }
+  list = sorted;
+}
+
+/*  // initialize sorted linked list
+
 
     NodeType *current = list;
 
@@ -56,5 +53,4 @@ void Sort(NodeType *list) {
       // TO DO: ADD THE MINIMUM LOCATION THING
       current = next;
     }
-    list = sorted; */
-}
+     */
