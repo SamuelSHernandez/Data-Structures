@@ -42,28 +42,3 @@ void Sort(NodeType *list) {
   }
   list = sorted;
 }
-
-/*
-++++++++3
-  NodeType *sorted = NULL;
-  NodeType *current = list;
-
-  while (current != NULL) {
-    NodeType *next = current->next;
-    sorted = MinLoc(current, next);
-    current = next;
-  }
-  list = sorted;
-++++2
-
-+++1
-  NodeType *current = list;
-
-  while (list != NULL) {
-
-    sorted = MinLoc(list, current);
-
-    list = list->next;
-  }
-
-  list = sorted; */
