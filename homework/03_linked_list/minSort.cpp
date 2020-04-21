@@ -32,9 +32,10 @@ void Sort(NodeType *list) {
   NodeType *sorted = NULL;
   NodeType *current = list;
 
+
   while (list != NULL) {
 
-    MinLoc(sorted, current);
+    sorted = MinLoc(sorted, current);
 
     list = list->next;
   }
