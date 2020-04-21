@@ -19,7 +19,7 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
     minPtr = list;
   } else {
     if (minPtr->info.ComparedTo(list->info) == LESS) {
-      minPtr->info = list->info;
+      minPtr = list;
     }
     list = list->next;
   }
