@@ -35,22 +35,9 @@ void Sort(NodeType *list) {
   while (list != NULL) {
 
     MinLoc(list, current);
-
+    sorted = list;
     list = list->next;
   }
+
   list = sorted;
 }
-
-/*  // initialize sorted linked list
-
-
-    NodeType *current = list;
-
-    while (current != NULL) {
-      NodeType *next = current->next;
-
-      MinLoc(list, current);
-      // TO DO: ADD THE MINIMUM LOCATION THING
-      current = next;
-    }
-     */
