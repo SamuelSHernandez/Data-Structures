@@ -32,14 +32,14 @@ void Sort(NodeType *list) {
   NodeType *sorted = NULL;
   NodeType *current = list;
 
-
   while (list != NULL) {
-if(sorted != NULL){
-    sorted = sorted->next;
-}
-    sorted = MinLoc(list,current);
-
-    list = list->next;
+    if (sorted != NULL) {
+      sorted = sorted->next;
+      list = list->next;
+    } else {
+      sorted = MinLoc(list, current);
+      list = list->next;
+    }
   }
   list = sorted;
 }
