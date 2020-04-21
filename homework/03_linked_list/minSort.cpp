@@ -38,7 +38,7 @@ void Sort(NodeType *list) {
     } else {
       sorted = MinLoc(list, current);
       current->info = sorted->info; // copies the sorted element to the current
-      list = list->next;            // iterates
+      current = list->next;            // iterates
     }
   }
   list = sorted; // puts sorted list on original list
