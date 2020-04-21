@@ -34,12 +34,12 @@ void Sort(NodeType *list) {
   while (list != NULL) { // make sure list is not empty
     if (sorted != NULL) {
       sorted = MinLoc(list, current);
-      list->info = sorted->info;
+      current->info = sorted->info;
       list = list->next;
     } else {
-      sorted = MinLoc(list, current);
+      // if list is empty
+      sorted->info = list->info;
       list = list->next;
     }
   }
-  list = sorted;
 }
