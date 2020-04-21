@@ -28,6 +28,7 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 }
 
 void Sort(NodeType *list) {
+  NodeType *temp = NULL;
   NodeType *sorted = NULL;
   NodeType *current = list;
 
@@ -38,30 +39,13 @@ void Sort(NodeType *list) {
       list = list->next;
       // this works
     } else {
-      current = MinLoc(list, sorted);
 
+      temp = MinLoc(current, sorted);
+
+      sorted->info = temp->info;
+     // sorted = sorted->next;
+      current = current->next;
     }
-list = sorted;
-    // outside
-  }
-}
-
-/*
-
-
-
-
-
-  --------
-    NodeType *temp = NULL;
-  NodeType *sorted = NULL;
-  NodeType *current = list;
-
-  while (list != NULL) {
-
-    temp = MinLoc(list, sorted);
-    current->info = temp->info;
-    current = current->next;
   }
   list = sorted;
-*/
+}
