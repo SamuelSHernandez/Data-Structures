@@ -33,7 +33,7 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 
 void Sort(NodeType *list) {
 
-  // initialize sorted linked list
+/*  // initialize sorted linked list
   NodeType *sorted = NULL;
 
   NodeType *current = list;
@@ -45,5 +45,5 @@ void Sort(NodeType *list) {
     // TO DO: ADD THE MINIMUM LOCATION THING
     current = next;
   }
-  list = sorted;
+  list = sorted; */
 }
