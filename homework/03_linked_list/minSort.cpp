@@ -17,9 +17,9 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
   // TODO Add recursive MinLoc.
 
   while (list != NULL) {
-    if ((minPtr->info.ComparedTo(list->info) == EQUAL)) {
+    if ((list->info.ComparedTo(minPtr->info) == GREATER) ||
+        list->info.ComparedTo(minPtr->info) == EQUAL) {
       minPtr->info = list->info;
-      break;
     }
   }
   return minPtr;
