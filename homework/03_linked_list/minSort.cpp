@@ -42,9 +42,6 @@ void Sort(NodeType *list) {
       current->info = sorted->info; // copies the sorted element to the current
       current = list->next;         // iterates
     }
-    if (current->info.ComparedTo(sorted->info) == EQUAL) {
-      current = 0;
-    }
   }
   list = sorted;
 }
