@@ -45,5 +45,5 @@ void Sort(NodeType *list) {
       current = list->next;
     }
   }
-  list = current;
+  list = sorted;
 }
