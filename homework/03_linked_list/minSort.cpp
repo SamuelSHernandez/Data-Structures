@@ -15,53 +15,34 @@
 using namespace std;
 
 NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
-
-  if (list == NULL) {
+  if (minPtr->info.ComparedTo(list->info) == GREATER) {
     minPtr = list;
-  } else {
-    if (minPtr->info.ComparedTo(list->info) == GREATER) {
-      minPtr = list;
-    }
-    list = list->next;
   }
 
-  return minPtr;
+  if (list->next == NULL) {
+    return minPtr;
+  } else {
+    return MinLoc(list->next, minPtr);
+  }
 }
 
 void Sort(NodeType *list) {
 
-  while (list != NULL) {
+  NodeType *minPtr = new NodeType;
+  minPtr->info = list->info;
+  minPtr->next = NULL;
+  ItemType currentMin = MinLoc(list, minPtr)->info;
 
-    NodeType *minPtr = new NodeType;
-    minPtr->info = list->info;
-    minPtr->next = NULL;
-    ItemType currentMin = MinLoc(list, minPtr)->info;
+  if (currentMin.ComparedTo(list->info) == LESS) {
+    ItemType temp = list->info;
+    list->info = minPtr->info;
+    minPtr->info = temp;
+  }
 
-    if (currentMin.ComparedTo(list->info) == LESS) {
-      ItemType temp = list->info;
-      list->info = minPtr->info;
-      minPtr->info = temp;
-    } else {
-      Sort(list->next);
-    }
+  if (list->next == NULL) {
+
+    return;
+  } else {
+    Sort(list->next);
   }
 }
-
-/*
-  NodeType *sorted = NULL;
-  NodeType *current = list;
-
-  while (list != NULL) {
-
-    if (sorted != NULL) {
-      sorted = MinLoc(list, current);
-      list->info = sorted->info;
-      list = list->next;
-
-    } else {
-      sorted = MinLoc(list, current);
-      current->info = sorted->info;
-      current = list->next;
-    }
-  }
- */
