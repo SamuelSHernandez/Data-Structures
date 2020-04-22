@@ -30,22 +30,22 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 
 void Sort(NodeType *list) {
 
-  NodeType *sorted = NULL;
-  NodeType *tempSort = NULL;
+  NodeType *minPtr = new NodeType;
+  minPtr->info = list->info;
+  minPtr->next = NULL;
+  ItemType currentMin = MinLoc(list, minPtr)->info;
 
-  while (list != NULL) {
+  if (currentMin.ComparedTo(list->info) == LESS) {
+    ItemType temp = list->info;
+    list->info = minPtr->info;
+    minPtr->info = temp;
+  }
 
-    if (sorted == NULL) { // first element of list
-      sorted->info = list->info;
-      list = list->next;
-      tempSort->info = sorted->info;
+  if (list->next == NULL) {
 
-    } else { // remaininng elements
-      sorted = MinLoc(list, tempSort);
-      list = list->next;
-      tempSort->info = sorted->info;
-    }
-    list->info = tempSort->info;
+    return;
+  } else {
+    Sort(list->next);
   }
 }
 
