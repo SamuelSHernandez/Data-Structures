@@ -29,20 +29,21 @@ NodeType *MinLoc(NodeType *list, NodeType *&minPtr) {
 }
 
 void Sort(NodeType *list) {
-  NodeType *sorted = NULL;  // holds the sorted list
-  NodeType *current = list; // used for iterating through the list
+  NodeType *sorted = NULL;
+  NodeType *current = list;
 
   while (list != NULL) {
 
-    if (sorted != NULL) { // once sorted head is set, move to the next element
+    if (sorted != NULL) {
       sorted = MinLoc(list, current);
-      list->info = sorted->info;
-      list = list->next;
+      current->info = sorted->info;
+      current = list->next;
+
     } else {
       sorted = MinLoc(list, current);
-      current->info = sorted->info; // copies the sorted element to the current
-      current = list->next;         // iterates
+      current->info = sorted->info;
+      current = list->next;
     }
   }
-  list = sorted;
+  list = current;
 }
