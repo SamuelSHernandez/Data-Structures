@@ -33,18 +33,19 @@ void Sort(NodeType *list) {
   NodeType *sorted = NULL;
   NodeType *tempSort = NULL;
 
-  if (list == NULL) { // first element of list
-    sorted->info = list->info;
-    list = list->next;
-    tempSort->info = sorted->info;
-    sorted = sorted->next;
+  while (list != NULL) {
 
-  } else { // remaininng elements
-    sorted = MinLoc(list, tempSort);
-    list = list->next;
-    sorted->info = list->info;
-    tempSort->info = sorted->info;
-    sorted = sorted->next;
+    if (sorted == NULL) { // first element of list
+      sorted->info = list->info;
+      list = list->next;
+      tempSort->info = sorted->info;
+
+    } else { // remaininng elements
+      sorted = MinLoc(list, tempSort);
+      list = list->next;
+      tempSort->info = sorted->info;
+    }
+    list->info = tempSort->info;
   }
 }
 
