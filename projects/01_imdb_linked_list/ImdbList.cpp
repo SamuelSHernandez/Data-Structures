@@ -53,6 +53,38 @@ SLelement<string> *ImdbList::GetHead() { return listData; }
 
 void ImdbList::PutActor(string actor, string movies, int count) {
   // TODO Add code here.
+
+  // create element
+  SLelement<string> *newNode = new SLelement<string>(actor, movies);
+
+  // adding visualization features
+  // set size and color based on number of movies
+  string color = "";
+  double size = 0.;
+
+  if (count < 10) {
+    color = "antiquewhite";
+    size = 10.0;
+  }
+  // NICE
+  else if (count < 50) {
+    color = "cornflowerblue";
+    size = 10.0;
+  } else if (count < 100) {
+    color = "darkseagreen";
+    size = 10.0;
+  } else {
+    color = "darkolivegreen";
+    size = 10.0;
+  }
+
+  newNode->setSize(size);
+  newNode->setColor(Color(color));
+  // add the element to the list
+  newNode->setNext(listData);
+  listData = newNode;
+  // update length
+  length++;
 }
 
 void ImdbList::GetActor(string actor, string &movies, bool &found) {
