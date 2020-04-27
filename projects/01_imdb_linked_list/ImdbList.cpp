@@ -96,14 +96,11 @@ void ImdbList::PutActor(string actor, string movies, int count) {
 
   newNode->setNext(listData);
   listData = newNode;
-  // update length
-  length++;
 
-  // TODO: Add element to the list
   int counter = length;
   SLelement<string> *temp = listData;
   SLelement<string> *prev = listData;
-  // TODO:inserting at beginning, middle or end.
+
   if (length == 0) {
     newNode->setNext(listData);
     listData = newNode;
@@ -119,19 +116,16 @@ void ImdbList::PutActor(string actor, string movies, int count) {
         }
         break;
       }
-      if () {
+      if (temp->getNext() == NULL) {
+        temp->setNext(newNode);
+        break;
       }
+      counter--;
+      prev = temp;
+      temp = temp->getNext();
     }
   }
-  // outside !!
-
-  // TODO: make list sorted
-
-  // compare current to next. if (current > next) swap them. Repeat until list
-  // is sorted. add counter for loop to see if everything is sorted
-
-  // adding visualization features
-  // set size and color based on number of movies
+  length++;
 }
 
 void ImdbList::GetActor(string actor, string &movies, bool &found) {
