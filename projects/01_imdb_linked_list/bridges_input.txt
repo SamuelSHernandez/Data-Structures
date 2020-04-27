@@ -1,4 +1,15 @@
 AddAll
 GetLength
+IsFull
 Visualize
+GetActor
+Blake_Clark
+DeleteActor
+Blake_Clark
+GetActor
+Blake_Clark
+PrintList
+ResetList
+MakeEmpty
+GetLength
 Quit

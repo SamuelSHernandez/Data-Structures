@@ -120,7 +120,7 @@ void ImdbList::GetActor(string actor, string &movies, bool &found) {
       found = true;
       return;
     }
-    current = current->next();
+    current = current->getNext();
   }
 
   found = false;

@@ -1,4 +1,8 @@
 MyTest
 All actors have been added.
 List has 158 items.
+List is not full.
 List was visualized.
+Actor Blake_Clark was found.
+Blake_Clark is deleted.
+Actor  Blake_Clark was not found.
