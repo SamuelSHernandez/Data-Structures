@@ -47,8 +47,6 @@ int ImdbList::GetLength() const {
 
 void ImdbList::MakeEmpty() {
 
-  // TODO Add code here.
-  // clean everything
   length = 0;
   listData = NULL;
 }
@@ -57,23 +55,10 @@ SLelement<string> *ImdbList::GetHead() { return listData; }
 
 void ImdbList::PutActor(string actor, string movies, int count) {
 
-  // create element
   SLelement<string> *newNode = new SLelement<string>(actor, movies);
 
-  do {
-    counter = 0;
-    if (newNode > newNode->GetNextActor()) {
-      temporary = newNode;
-      newMode = next;
-      newNode = temporary;
-      // NICE
-      counter++;
-    }
-
-  } while (counter != 0);
-
   string color = "";
-  double size = 0.;
+  double size = 0.0;
 
   if (count < 10) {
     color = "firebrick";
@@ -94,9 +79,6 @@ void ImdbList::PutActor(string actor, string movies, int count) {
   newNode->setSize(size);
   newNode->setColor(Color(color));
 
-  newNode->setNext(listData);
-  listData = newNode;
-
   int counter = length;
   SLelement<string> *temp = listData;
   SLelement<string> *prev = listData;
@@ -106,6 +88,7 @@ void ImdbList::PutActor(string actor, string movies, int count) {
     listData = newNode;
   } else {
     while (counter > 0) {
+
       if (temp->getValue() > newNode->getValue()) {
         if (counter == length) {
           newNode->setNext(listData);
@@ -116,6 +99,7 @@ void ImdbList::PutActor(string actor, string movies, int count) {
         }
         break;
       }
+
       if (temp->getNext() == NULL) {
         temp->setNext(newNode);
         break;
@@ -129,32 +113,43 @@ void ImdbList::PutActor(string actor, string movies, int count) {
 }
 
 void ImdbList::GetActor(string actor, string &movies, bool &found) {
-  // TODO Add code here.
+  SLement<string> *current = listData;
+  for (int i = 0; i < length; i++) {
+    if (current->getValue() == actor) {
+      movies = crrent->getLabel();
+      found = true;
+      return;
+    }
+    current = current->next();
+  }
 
-  //
-  // No. 1
-
-  // Pre:  List has been initialized.(DONE)
-  // Post: If there is an element someItem whose key matches
-  //       item's key, then found = true and someItem is returned;
-  // 	   otherwise found = false and item is returned.
-  //       List is unchanged.
+  found = false;
 }
 
 void ImdbList::DeleteActor(string actor) {
-  // TODO Add code here.
-  // No. 3
+  SLelement<string> *current = listData;
+  SLelement<string> *previous = listDta;
+
+  while (current->getValue() != actor) {
+    previous = current;
+    current - current - getNext();
+  }
+
+  previous->setNext(current->getNext());
+  length--;
 }
 
-void ImdbList::ResetList() {
-  // TODO Add code here.
-  // No. 4
-}
+void ImdbList::ResetList() { currentPos = listData; }
 
 void ImdbList::GetNextActor(string &actor, string &movies) {
-  // TODO Add code here.
 
-  // No. 2
+  if (currentPos = NULL) {
+    return;
+  }
+  actor = currentPos->nextValue();
+  movies = currentPos->getLabel();
+
+  currentPos = currentPos->next();
 }
 
 // that's all folks!
