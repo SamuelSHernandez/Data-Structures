@@ -3,9 +3,9 @@
  * Project 1: ImdbList implemented using linked list
  *
  * File Name: ImdbList.cpp
- * Name:      ??
+ * Name:      hernsa
  * Course:    CPTR 242
- * Date:      ??
+ * Date:      4/27
  *
  */
 #include "ImdbList.h"
@@ -46,7 +46,7 @@ int ImdbList::GetLength() const {
 }
 
 void ImdbList::MakeEmpty() {
-
+  // Empty list
   length = 0;
   listData = NULL;
 }
@@ -113,10 +113,10 @@ void ImdbList::PutActor(string actor, string movies, int count) {
 }
 
 void ImdbList::GetActor(string actor, string &movies, bool &found) {
-  SLement<string> *current = listData;
+  SLelement<string> *current = listData;
   for (int i = 0; i < length; i++) {
     if (current->getValue() == actor) {
-      movies = crrent->getLabel();
+      movies = current->getLabel();
       found = true;
       return;
     }
@@ -128,11 +128,11 @@ void ImdbList::GetActor(string actor, string &movies, bool &found) {
 
 void ImdbList::DeleteActor(string actor) {
   SLelement<string> *current = listData;
-  SLelement<string> *previous = listDta;
+  SLelement<string> *previous = listData;
 
   while (current->getValue() != actor) {
     previous = current;
-    current - current - getNext();
+    current = current->getNext();
   }
 
   previous->setNext(current->getNext());
@@ -146,10 +146,10 @@ void ImdbList::GetNextActor(string &actor, string &movies) {
   if (currentPos = NULL) {
     return;
   }
-  actor = currentPos->nextValue();
+  actor = currentPos->getValue();
   movies = currentPos->getLabel();
 
-  currentPos = currentPos->next();
+  currentPos = currentPos->getNext();
 }
 
 // that's all folks!
