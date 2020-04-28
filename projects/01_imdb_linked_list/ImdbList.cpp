@@ -66,7 +66,7 @@ void ImdbList::PutActor(string actor, string movies, int count) {
 
   string color = "";
   double size = 0.0;
-
+  // NICE
   if (count < 10) {
     color = "firebrick";
     size = 20.0;
@@ -153,12 +153,8 @@ void ImdbList::ResetList() {
 
 void ImdbList::GetNextActor(string &actor, string &movies) {
 
-  if (currentPos = NULL) {
-    return;
-  }
   actor = currentPos->getValue();
   movies = currentPos->getLabel();
-
   currentPos = currentPos->getNext();
 }
 

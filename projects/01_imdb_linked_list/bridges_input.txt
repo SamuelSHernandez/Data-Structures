@@ -3,7 +3,6 @@ Menu
 IsFull
 GetLength
 ResetList
-PrintList
 MakeEmpty
 IsFull
 GetLength
@@ -12,7 +11,6 @@ GetActor
 Erica_Long
 DeleteActor
 Sara_Rifkin
-PrintList
 ResetList
 GetNextActor
 GetNextActor

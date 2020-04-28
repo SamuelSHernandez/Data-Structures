@@ -17,3 +17,14 @@ Menu. Display menu.
 List is not full.
 List has 158 items.
 List was reset.
+List has been emptied.
+List is not full.
+List has 0 items.
+All actors have been added.
+Actor Erica_Long was found.
+Sara_Rifkin is deleted.
+List was reset.
+The next item in the list is .
+The next item in the list is Adam_Sandler_(I).
+The next item in the list is Al_Pacino.
+List was visualized.
