@@ -47,6 +47,13 @@ int ImdbList::GetLength() const {
 
 void ImdbList::MakeEmpty() {
   // Empty list
+  SLelement<string> *temp;
+
+  while (listData != NULL) {
+    temp = listData->getNext();
+    delete listData;
+    listData = temp;
+  }
   length = 0;
   listData = NULL;
 }
@@ -63,9 +70,7 @@ void ImdbList::PutActor(string actor, string movies, int count) {
   if (count < 10) {
     color = "firebrick";
     size = 20.0;
-  }
-
-  else if (count < 50) {
+  } else if (count < 50) {
     color = "cornflowerblue";
     size = 30.0;
   } else if (count < 100) {
@@ -113,11 +118,14 @@ void ImdbList::PutActor(string actor, string movies, int count) {
 }
 
 void ImdbList::GetActor(string actor, string &movies, bool &found) {
+
   SLelement<string> *current = listData;
+
   for (int i = 0; i < length; i++) {
     if (current->getValue() == actor) {
-      movies = current->getLabel();
       found = true;
+      movies = current->getLabel();
+
       return;
     }
     current = current->getNext();
@@ -139,7 +147,9 @@ void ImdbList::DeleteActor(string actor) {
   length--;
 }
 
-void ImdbList::ResetList() { currentPos = listData; }
+void ImdbList::ResetList() {
+  currentPos = new SLelement<string>(listData, "", "");
+}
 
 void ImdbList::GetNextActor(string &actor, string &movies) {
 

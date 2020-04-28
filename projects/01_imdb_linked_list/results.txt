@@ -1,8 +1,19 @@
 MyTest
 All actors have been added.
-List has 158 items.
+Select options
+PrintList. Prints list.
+MakeEmpty. Returns the list to the empty state.
+IsFull. Returns whether list is full.
+GetLength. Returns length of list.
+GetActor. Retrieves list element whose key matches item's key.
+PutActor. Add item to list.
+DeleteActor. Deletes the element whose key matches item's key.
+ResetList. Reinitializes current position of iteration through list.
+GetNextActor. Gets next element in list.
+Visualize. Builds the bridges visualization and prints the URL.
+AddAll. Adds all actors to the list.
+Quit. Quit application.
+Menu. Display menu.
 List is not full.
-List was visualized.
-Actor Blake_Clark was found.
-Blake_Clark is deleted.
-Actor  Blake_Clark was not found.
+List has 158 items.
+List was reset.
