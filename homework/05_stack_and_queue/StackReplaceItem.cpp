@@ -3,7 +3,9 @@
  * Assignment: ReplaceItemStack
  *
  * File Name: ReplaceItemStack.cpp
- * Name:        ?
+ * Name:        hernsa
  * Course:      CPTR 242
- * Date:        ?
+ * Date:        today
  */
+
+ 
