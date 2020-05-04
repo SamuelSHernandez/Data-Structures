@@ -17,8 +17,13 @@ void QueueType::ReplaceItem(ItemType oldItem, ItemType newItem) {
   // Function: Replaces item in
   int size = 0;
   ItemType tempItem = items[front];
+
   if (front < rear) {
     size = rear - front;
+  }
+
+  if (front > rear) {
+     size =  maxQue - front + rear;
   }
 
   // TO DO: Iterate through both queues and transfer head to tail
