@@ -18,7 +18,7 @@ void QueueType::ReplaceItem(ItemType oldItem, ItemType newItem) {
   // Function: Replaces item in
   // copy the head of old to tail of new
   int queueIndex;
-  for (queueIndex = rear; queueIndex >= front; queueIndex++) {
+  for (queueIndex = rear; queueIndex >= front; queueIndex--) {
     if (items[queueIndex] == oldItem) {
       break;
     }
