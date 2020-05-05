@@ -5,8 +5,8 @@
  * File Name: DriverQueue.cpp
  * Course:    CPTR 242
  */
-#include "QueueType.h"
 #include "QueueTest.h"
+#include "QueueType.h"
 #include <fstream>
 #include <iostream>
 #include <string>

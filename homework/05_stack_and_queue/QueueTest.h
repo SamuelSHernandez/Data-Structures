@@ -12,4 +12,4 @@
 void PrintQueue(std::ofstream &dataFile, QueueType &queue);
 
 void QueueTest(std::string inFileName, std::string outFileName,
-                std::string outputLabel);
+               std::string outputLabel);

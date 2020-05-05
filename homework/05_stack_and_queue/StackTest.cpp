@@ -10,7 +10,6 @@
 #include <fstream>
 #include <iostream>
 
-
 void StackTest(std::string inFileName, std::string outFileName,
                std::string outputLabel) {
   std::ifstream inFile;  // file containing operations

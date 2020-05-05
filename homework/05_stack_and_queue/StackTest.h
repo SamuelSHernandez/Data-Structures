@@ -12,4 +12,4 @@
 void PrintStack(std::ofstream &dataFile, StackType &queue);
 
 void StackTest(std::string inFileName, std::string outFileName,
-                std::string outputLabel);
+               std::string outputLabel);
