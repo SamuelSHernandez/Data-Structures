@@ -157,10 +157,11 @@ void ImdbList::ResetList() { currentPos = listData; }
 void ImdbList::GetNextActor(string &actor, string &movies) {
   if (currentPos == NULL) {
     return;
+  } else {
+    actor = currentPos->getValue();
+    movies = currentPos->getLabel();
+    currentPos = currentPos->getNext();
   }
-  actor = currentPos->getValue();
-  movies = currentPos->getLabel();
-  currentPos = currentPos->getNext();
 }
 
 // that's all folks!
