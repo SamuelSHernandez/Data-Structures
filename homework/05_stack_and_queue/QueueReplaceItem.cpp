@@ -7,6 +7,7 @@
  * Course:      CPTR 242
  * Date:        today
  */
+#include "ItemType.h"
 #include "QueueType.h"
 
 // TODO: Implement ReplaceItem for the queue implementation

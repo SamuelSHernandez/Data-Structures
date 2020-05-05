@@ -10,9 +10,9 @@ _Assignment:_ Homework 5
 
 _Date:_ may 3rd
 
-_Estimated:_ 6 hours
+_Estimated:_ 4 hours
 
-_Actual Time:_ 3 hours, lol
+_Actual Time:_ 2 hours, approx.
 
 ---
 

@@ -13,7 +13,7 @@ void StackType::ReplaceItem(ItemType oldItem, ItemType newItem) {
   // TO DO: put head of the stack into head of new stack.
   int stackIndex;
 
-  for (stackIndex = top; stackIndex >= 0; stackIndex++) {
+  for (stackIndex = top; stackIndex != -1; stackIndex++) {
     if (items[stackIndex] == oldItem) {
       break;
     }
