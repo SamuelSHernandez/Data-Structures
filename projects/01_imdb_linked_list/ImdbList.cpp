@@ -60,7 +60,7 @@ void ImdbList::MakeEmpty() {
 SLelement<string> *ImdbList::GetHead() { return listData; }
 
 void ImdbList::PutActor(string actor, string movies, int count) {
-
+  ResetList();
   SLelement<string> *newNode = new SLelement<string>(actor, movies);
 
   string color = "";
@@ -146,9 +146,7 @@ void ImdbList::DeleteActor(string actor) {
   length--;
 }
 
-void ImdbList::ResetList() {
-  currentPos = new SLelement<string>(listData, "", "");
-}
+void ImdbList::ResetList() { currentPos = listData; }
 
 void ImdbList::GetNextActor(string &actor, string &movies) {
 
