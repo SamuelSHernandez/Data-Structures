@@ -14,6 +14,11 @@ Sara_Rifkin
 ResetList
 GetNextActor
 GetNextActor
-GetNextActor
+GetNextActor 
+MakeEmpty
+GetLength
+putActor
+Al_Pacino
+GetLength
 Visualize
 Quit

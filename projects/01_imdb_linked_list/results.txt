@@ -27,4 +27,7 @@ List was reset.
 The next item in the list is .
 The next item in the list is Adam_Sandler_(I).
 The next item in the list is Al_Pacino.
+List has been emptied.
+List has 0 items.
+List has 0 items.
 List was visualized.

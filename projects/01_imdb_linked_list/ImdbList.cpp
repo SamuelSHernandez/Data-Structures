@@ -47,14 +47,14 @@ int ImdbList::GetLength() const {
 
 void ImdbList::MakeEmpty() {
   // Empty list
-  SLelement<string> *temp;
-  while (listData != NULL) {
-    currentPos = listData;
-    listData = listData->getNext();
-    delete listData;
+  ResetList();
+  while (currentPos != NULL) {
+    SLelement<string> *temp = currentPos;
+    currentPos = currentPos->getNext();
+    temp = NULL;
   }
-  currentPos = NULL;
   length = 0;
+  listData = NULL;
 }
 
 SLelement<string> *ImdbList::GetHead() { return listData; }
