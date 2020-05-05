@@ -16,20 +16,11 @@
 void QueueType::ReplaceItem(ItemType oldItem, ItemType newItem) {
   // Function: Replaces item in
   // copy the head of old to tail of new
-  QueueType tempQueue;
-
-  while (!this->IsEmpty()) {
-    ItemType tempItem;
-    this->Dequeue(tempItem);
-    if (oldItem == newItem) {
-      tempItem = newItem;
+  int queueIndex;
+  for (queueIndex = rear; queueIndex >= front; queueIndex++) {
+    if (items[queueIndex] == oldItem) {
+      break;
     }
-    tempQueue.Enqueue(tempItem);
   }
-
-  while (!tempQueue.IsEmpty()) {
-    ItemType tempItem;
-    tempQueue.Dequeue(tempItem);
-    this->Enqueue(newItem);
-  }
+  items[queueIndex] = newItem;
 }
