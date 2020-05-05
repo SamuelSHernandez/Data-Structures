@@ -149,7 +149,8 @@ void ImdbList::DeleteActor(string actor) {
 void ImdbList::ResetList() { currentPos = listData; }
 
 void ImdbList::GetNextActor(string &actor, string &movies) {
-
+    if(currentPos == NULL)
+        return;
   actor = currentPos->getLabel();
   movies = currentPos->getValue();
   currentPos = currentPos->getNext();
