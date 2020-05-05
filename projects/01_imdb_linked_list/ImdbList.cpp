@@ -134,6 +134,7 @@ void ImdbList::GetActor(string actor, string &movies, bool &found) {
 }
 
 void ImdbList::DeleteActor(string actor) {
+  ResetList();
   SLelement<string> *current = listData;
   SLelement<string> *previous = listData;
 
