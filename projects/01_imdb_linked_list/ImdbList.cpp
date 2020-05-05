@@ -135,16 +135,21 @@ void ImdbList::GetActor(string actor, string &movies, bool &found) {
 
 void ImdbList::DeleteActor(string actor) {
   ResetList();
-  SLelement<string> *current = listData;
-  SLelement<string> *previous = listData;
-
-  while (current->getValue() != actor) {
-    previous = current;
-    current = current->getNext();
+  SLelement<string> *prev = currentPos;
+  while (currentPos != NULL) {
+    if (currentPos->getLabel() == actor) {
+      if (currentPos == listData) {
+        listData = currentPos->getNext();
+      } else {
+        prev->setNext(currentPos->getNext());
+      }
+      currentPos = NULL;
+      length--;
+      break;
+    }
+    prev = currentPos;
+    currentPos = currentPos->getNext();
   }
-
-  previous->setNext(current->getNext());
-  length--;
 }
 
 void ImdbList::ResetList() { currentPos = listData; }
