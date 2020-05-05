@@ -62,7 +62,7 @@ void QueueTest(std::string inFileName, std::string outFileName,
         queue.ReplaceItem(itemNew, itemOld);
         std::string s1(1, itemNew);
         std::string s2(1, itemOld);
-        outFile << s1 + " was replaced with " + s2 << std::endl;
+        outFile << s2 + " was replaced with " + s1 << std::endl;
       } else if (command == "Print") {
         PrintQueue(outFile, queue);
       } else {
