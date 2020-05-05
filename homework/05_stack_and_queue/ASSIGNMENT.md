@@ -12,13 +12,14 @@ _Date:_ may 3rd
 
 _Estimated:_ 6 hours
 
-_Actual Time:_ ?
+_Actual Time:_ 3 hours, lol
 
 ---
 
 I hereby certify that the code included in this assignment is ENTIRELY my own original work, with the following exceptions:
 
 * Exception one
+https://www.geeksforgeeks.org/this-pointer-in-c/
 * Exception two
 
 ---
