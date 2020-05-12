@@ -17,9 +17,9 @@ void HeapType<ItemType>::ReheapDownIterative(int root, int bottom) {
   // TODO Implement a Iterative ReheapDown Function.
 
   bool done = false;
-  int right_child = 0;
+  int max_child = 0;
   int left_child = root * 2 + 1;
-  int max_child = root * 2 + 2;
+  int right_child = root * 2 + 2;
 
   while (left_child <= bottom && !done) {
     if (left_child == bottom) {
