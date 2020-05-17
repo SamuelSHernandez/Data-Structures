@@ -24,12 +24,13 @@ void GraphType<VertexType>::DeleteVertex(VertexType vertex) {
   for (int i = 0; i < numVertices; i++) {
     if (vertices[i] == vertex) {
       index = i;
+      break;
     }
   }
 
   // TO DO:delete connections
-  index_final = IndexIs(vertex);
-  for (index_initial = 0; index_initial < numVertices; index_final++) {
+  index_initial = IndexIs(vertex);
+  for (index_final = 0; index_final < numVertices; index_final++) {
     if (edges[index_initial][index_final] != NULL_EDGE) {
       DeleteEdge(index_initial, vertices[index_initial]);
       DeleteEdge(vertices[index_final], index_initial);
