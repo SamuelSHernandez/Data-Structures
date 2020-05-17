@@ -1,3 +1,0 @@
-example_user_input.txt
-results.txt
-MyResults
