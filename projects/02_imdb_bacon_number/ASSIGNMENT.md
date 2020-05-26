@@ -2,15 +2,15 @@
 
 ## Walla Walla University -- Department of Computer Science
 
-_Name:_ ?
+_Name:_ Samuel Hernandez
 
 _Course:_ CPTR242
 
-_Assignment:_ ?
+_Assignment:_ Project 2
 
-_Date:_ ?
+_Date:_ 5/25
 
-_Estimated:_ ?
+_Estimated:_ 4 hours
 
 _Actual Time:_ ?
 
@@ -23,6 +23,6 @@ I hereby certify that the code included in this assignment is ENTIRELY my own or
 
 ---
 
-_Digital Signature:_ ???
+_Digital Signature:_ Samuel Hernandez
 
 (Type name or include signature image)
