@@ -1,4 +1,4 @@
-my_test.txt
+my_test
 Graph was visualized.
 Actor Billy_Bob_Thornton was found and 55 movies have been added.
 Actor Adam_Sandler_(I) was found and 33 movies have been added.

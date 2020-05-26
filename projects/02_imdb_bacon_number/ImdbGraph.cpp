@@ -84,16 +84,35 @@ void ImdbGraph::VisualizeEdge(string actorOrMovie, string movieOrActor2,
   graph.getLinkVisualizer(actorOrMovie, movieOrActor2)->setThickness(5.0);
   graph.getLinkVisualizer(movieOrActor2, actorOrMovie)->setThickness(5.0);
 
-    graph.getLinkVisualizer(actorOrMovie, movieOrActor2)->setColor(Color(color));
-    graph.getLinkVisualizer(movieOrActor2, actorOrMovie)->setColor(Color(color));
+  graph.getLinkVisualizer(actorOrMovie, movieOrActor2)->setColor(Color(color));
+  graph.getLinkVisualizer(movieOrActor2, actorOrMovie)->setColor(Color(color));
 }
 
 // Function: Resets all visualizations to the default.
 // Pre:  Graph has been initialized.
 // Post: The vertics and edges will display the default color.
 void ImdbGraph::ResetVisualizer() {
-    
   // TODO Add code here.
+
+  // reset vertex
+  for (auto &vertex : *graph.getVertices()) {
+    graph.getVisualizer(vertex.first)->setColor(Color("green"));
+    graph.getVisualizer(vertex.first)->setSize(20);
+    graph.getVisualizer(vertex.first)->setOpacity(0.10);
+
+    // reset edges
+    auto SLinkedList = graph.getAdjacencyList(vertex.first);
+
+    for (auto ListElement = SLinkedList; ListElement != NULL;
+         ListElement = ListElement->getNext()) {
+
+      auto destination = ((Edge<string>)ListElement->getValue()).to();
+      // reset color & thickness
+      graph.getLinkVisualizer(vertex.first, destination)
+          ->setColor(Color("black"));
+      graph.getLinkVisualizer(vertex.first, destination)->setThickness(1.0);
+    }
+  }
 }
 
 // Function: Calculates the Bacon Number for two actors.
@@ -108,5 +127,61 @@ void ImdbGraph::ResetVisualizer() {
 //          The graph will visually show the path to connect the actors.
 int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
   // TODO Add code here.
+  queue<string> frontier;
+  set<string> discovered;
+  map<string, int> path;
+  bool found = false;
+  string cur_node, initial_vertex, final_vertex;
+
+  // add starting point
+  frontier.push(sourceActor);
+  discovered.insert(sourceActor);
+  path.emplce(sourceActor, 0);
+
+  while (!frontier.empty() && !found) {
+    cur_node = frontier.front();
+    frontier.pop();
+    auto links = graph.getAdjacencyList(currentNode);
+
+    for (auto edge = links; edge != NULL; edge = edge->getNext()) {
+      toVertex = edge->getValue.to();
+      if (discovered.count(toVertex) == 0) {
+        discovered.insert(initial_vertex);
+        forntier.push(initialVertex);
+        path.emplace(initial_vertexmpath.at(curr_node) + 1);
+
+        if (initial_vertex == destinationActor) {
+          found = true;
+          break;
+        }
+      }
+    }
+  }
+
+  // depth track
+
+  // visualize
+
+  if (path.count(destinationActor) > 0) {
+    currentNode = destinationActor;
+
+    for (int i = path.at(destinationActor); i > 0; i--) {
+      auto links = graph.getAdjacencyList(curr_node);
+
+      for (auto edge = links; edge != NULL; edge = edge->getNext()) {
+        initial_vertex = edge->getValue().to();
+        final_vertex = getValue->getValue().from();
+        if (path.count(toVertex) > 0 && path.at(initial_vertex) < i) {
+          VisualizeEdge(final_vertex, final_vertex, "red");
+          VisualizeVertex(final_vertex, "red");
+          break;
+        }
+      }
+      VisualizeVertex(sourceActor, "green");
+      VisualizeVertex(destinationActor, "blue");
+    }
+    return path.at(destinationActor);
+  }
+
   return -1;
 }
