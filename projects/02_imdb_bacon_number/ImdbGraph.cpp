@@ -172,7 +172,7 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
         if (path.count(initial_vertex) > 0 && path.at(initial_vertex) < i) {
           VisualizeEdge(final_vertex, final_vertex, "red");
           VisualizeVertex(final_vertex, "red");
-          currentNode = initial_vertex;
+          curr_node = initial_vertex;
           break;
         }
       }
