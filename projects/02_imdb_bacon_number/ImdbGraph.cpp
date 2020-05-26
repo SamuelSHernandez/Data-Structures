@@ -9,7 +9,9 @@
  *
  */
 #include <iostream>
+#include <map>
 #include <queue>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -136,19 +138,19 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
   // add starting point
   frontier.push(sourceActor);
   discovered.insert(sourceActor);
-  path.emplce(sourceActor, 0);
+  path.emplacuce(sourceActor, 0);
 
   while (!frontier.empty() && !found) {
     cur_node = frontier.front();
     frontier.pop();
-    auto links = graph.getAdjacencyList(currentNode);
+    auto links = graph.getAdjacencyList(curr_node);
 
     for (auto edge = links; edge != NULL; edge = edge->getNext()) {
-      toVertex = edge->getValue.to();
+      initial_vertex = edge->getValue.to();
       if (discovered.count(toVertex) == 0) {
         discovered.insert(initial_vertex);
-        forntier.push(initialVertex);
-        path.emplace(initial_vertexmpath.at(curr_node) + 1);
+        forntier.push(initial_ertex);
+        path.emplace(initial_vertex.at(curr_node) + 1);
 
         if (initial_vertex == destinationActor) {
           found = true;
@@ -163,7 +165,7 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
   // visualize
 
   if (path.count(destinationActor) > 0) {
-    currentNode = destinationActor;
+    curr_node = destinationActor;
 
     for (int i = path.at(destinationActor); i > 0; i--) {
       auto links = graph.getAdjacencyList(curr_node);
