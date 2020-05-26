@@ -135,7 +135,6 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
   bool found = false;
   string curr_node, initial_vertex, final_vertex;
 
-  // add starting point
   frontier.push(sourceActor);
   discovered.insert(sourceActor);
   path.emplace(sourceActor, 0);
@@ -144,9 +143,10 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
     curr_node = frontier.front();
     frontier.pop();
     auto links = graph.getAdjacencyList(curr_node);
-
+    // for adjacent nodes
     for (auto edge = links; edge != NULL; edge = edge->getNext()) {
       initial_vertex = edge->getValue().to();
+
       if (discovered.count(initial_vertex) == 0) {
         discovered.insert(initial_vertex);
         frontier.push(initial_vertex);
@@ -160,10 +160,6 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
     }
   }
 
-  // depth track
-
-  // visualize
-
   if (path.count(destinationActor) > 0) {
     curr_node = destinationActor;
 
@@ -176,6 +172,7 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
         if (path.count(initial_vertex) > 0 && path.at(initial_vertex) < i) {
           VisualizeEdge(final_vertex, final_vertex, "red");
           VisualizeVertex(final_vertex, "red");
+          currentNode = initial_vertex;
           break;
         }
       }
