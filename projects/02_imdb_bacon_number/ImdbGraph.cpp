@@ -133,24 +133,24 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
   set<string> discovered;
   map<string, int> path;
   bool found = false;
-  string cur_node, initial_vertex, final_vertex;
+  string curr_node, initial_vertex, final_vertex;
 
   // add starting point
   frontier.push(sourceActor);
   discovered.insert(sourceActor);
-  path.emplacuce(sourceActor, 0);
+  path.emplace(sourceActor, 0);
 
   while (!frontier.empty() && !found) {
-    cur_node = frontier.front();
+    curr_node = frontier.front();
     frontier.pop();
     auto links = graph.getAdjacencyList(curr_node);
 
     for (auto edge = links; edge != NULL; edge = edge->getNext()) {
-      initial_vertex = edge->getValue.to();
-      if (discovered.count(toVertex) == 0) {
+      initial_vertex = edge->getValue().to();
+      if (discovered.count(initial_vertex) == 0) {
         discovered.insert(initial_vertex);
-        forntier.push(initial_ertex);
-        path.emplace(initial_vertex.at(curr_node) + 1);
+        frontier.push(initial_vertex);
+        path.emplace(initial_vertex, path.at(curr_node) + 1);
 
         if (initial_vertex == destinationActor) {
           found = true;
@@ -172,8 +172,8 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
 
       for (auto edge = links; edge != NULL; edge = edge->getNext()) {
         initial_vertex = edge->getValue().to();
-        final_vertex = getValue->getValue().from();
-        if (path.count(toVertex) > 0 && path.at(initial_vertex) < i) {
+        final_vertex = ed->getValue().from();
+        if (path.count(initial_vertex) > 0 && path.at(initial_vertex) < i) {
           VisualizeEdge(final_vertex, final_vertex, "red");
           VisualizeVertex(final_vertex, "red");
           break;
