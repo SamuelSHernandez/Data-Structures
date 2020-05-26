@@ -172,7 +172,7 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
 
       for (auto edge = links; edge != NULL; edge = edge->getNext()) {
         initial_vertex = edge->getValue().to();
-        final_vertex = ed->getValue().from();
+        final_vertex = edge->getValue().from();
         if (path.count(initial_vertex) > 0 && path.at(initial_vertex) < i) {
           VisualizeEdge(final_vertex, final_vertex, "red");
           VisualizeVertex(final_vertex, "red");
