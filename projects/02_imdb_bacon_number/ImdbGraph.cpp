@@ -184,3 +184,5 @@ int ImdbGraph::GetBaconNumber(string sourceActor, string destinationActor) {
 
   return -1;
 }
+
+//That's all folks

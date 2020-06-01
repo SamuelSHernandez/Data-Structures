@@ -12,7 +12,7 @@ _Date:_ 5/25
 
 _Estimated:_ 4 hours
 
-_Actual Time:_ ?
+_Actual Time:_ 6 hours
 
 ---
 
