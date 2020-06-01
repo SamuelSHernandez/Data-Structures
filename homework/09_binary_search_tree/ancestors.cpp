@@ -18,7 +18,7 @@ void TreeType::AncestorsIterative(ItemType value, std::ofstream &outFile) {
   while (cur->info != value) {
     outFile << cur->info;
 
-    if (value != cur->info) {
+    if (value < cur->info) {
       cur = cur->left;
     } else {
       cur = cur->right;
