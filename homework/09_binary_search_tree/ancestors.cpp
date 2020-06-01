@@ -45,6 +45,16 @@ void PrintAncestorsRecursive(TreeNode *tree, ItemType value,
 void PrintAncestorsReverse(TreeNode *tree, ItemType value,
                            std::ofstream &outFile) {
   // TODO implement ancestors reverse print
+  if (tree->info == value) {
+    return;
+  }
+
+  if (value < tree->info) {
+    PrintAncestorsRecursive(tree->left, value, outFile);
+  } else {
+    PrintAncestorsRecursive(tree->right, value, outFile);
+  }
+
   outFile << tree->info;
   return;
 }
