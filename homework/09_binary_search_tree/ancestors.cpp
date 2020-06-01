@@ -50,9 +50,9 @@ void PrintAncestorsReverse(TreeNode *tree, ItemType value,
   }
 
   if (value < tree->info) {
-    PrintAncestorsRecursive(tree->left, value, outFile);
+    PrintAncestorsReverse(tree->left, value, outFile);
   } else {
-    PrintAncestorsRecursive(tree->right, value, outFile);
+    PrintAncestorsReverse(tree->right, value, outFile);
   }
 
   outFile << tree->info;
