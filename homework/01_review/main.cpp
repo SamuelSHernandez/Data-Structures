@@ -4,7 +4,8 @@
  *
  * File Name: main.cpp
  * Course:    CPTR 242
- * Date:      April 2, 2019
+ * Date:      Jun 3 2020
+ index error in submitty
  */
 
 #include <fstream>
