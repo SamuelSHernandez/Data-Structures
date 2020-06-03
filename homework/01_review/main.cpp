@@ -14,7 +14,6 @@
 
 #include "manager.h"
 
-
 using namespace std;
 void printPlayers(ofstream &outFile, int numPlayers, Player *players);
 
@@ -32,7 +31,7 @@ int main() {
   Player *players = nullptr;
   int numPlayers = 0;
   Manager manager;
-  int index;
+  int index = 0;
   int numOptions;
 
   // Prompt for file names, read file names, and prepare files
