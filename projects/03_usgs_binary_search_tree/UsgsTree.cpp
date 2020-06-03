@@ -33,7 +33,7 @@ UsgsTree::getSmallestQuake(BSTElement<float, EarthquakeUSGS> *root,
   while (current->getLeft() != NULL) {
     current = current->getLeft();
   }
-  root.getVisualizer(current)->setColor(Color("green"));
+  root->NULLgetVisualizer(current)->setColor(Color("green"));
 
   return current->getValue();
 }
