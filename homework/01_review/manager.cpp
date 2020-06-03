@@ -68,6 +68,29 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
 }
 
 int Manager::searchPlayers(int numPlayers, Player *players, string target) {
-  return 0;
+  for (int i = 0; i < numPlayers; i++) {
+    if (target == players[i].getName()) {
+      return players[i].getScore();
+    }
+  }
+  return -1;
 }
-void Manager::removePlayer(int &numPlayers, Player *&players, string target) {}
+
+void Manager::removePlayer(int &numPlayers, Player *&players, string target) {
+
+  if (numPlayers == 0) {
+    return;
+  }
+  Player *newArray = new Player[numPlayers - 1];
+  int k = 0;
+  for (int i = 0; i < numPlayers; i++) {
+    if (players[i].getName() != target) {
+      newArray[k] = players[i];
+    } else {
+      k--;
+    }
+    k++;
+  }
+  numPlayers--;
+  players = newArray;
+}
