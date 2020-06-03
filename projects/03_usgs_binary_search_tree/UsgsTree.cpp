@@ -43,7 +43,13 @@ UsgsTree::getSmallestQuake(BSTElement<float, EarthquakeUSGS> *root,
 EarthquakeUSGS
 UsgsTree::getLargestQuake(BSTElement<float, EarthquakeUSGS> *root,
                           string color) {
-  return nullptr;
+  BSTElement<float, EarthquakeUSGS> *current = root;
+
+  while (current->getRight() != NULL) {
+    current = current->getRight();
+  }
+
+  return current->getValue();
 }
 
 // Function: Finds all nodes in the BST that are between the min and max
