@@ -3,9 +3,9 @@
  * Project: UsgsTree implementation
  *
  * File Name: UsgsTree.cpp
- * Name:      ??
+ * Name:      hernsa
  * Course:    CPTR 242
- * Date:      ??
+ * Date:      june 3
  *
  */
 #include "UsgsTree.h"
@@ -25,17 +25,24 @@ using namespace bridges;
 // Pre:  BST has been initialized and populated.
 // Post: The smallest quake will be visualized and returned.
 EarthquakeUSGS
-UsgsTree::getLargestQuake(BSTElement<float, EarthquakeUSGS> *root,
-                          string color) {
-  return nullptr;
+UsgsTree::getSmallestQuake(BSTElement<float, EarthquakeUSGS> *root,
+                           string color) {
+
+  BSTElement<float, EarthquakeUSGS> *current = root;
+
+  while (current->getLeft() != NULL) {
+    current = current->getLeft();
+  }
+
+  return current->getMagnitude();
 }
 
 // Function: Finds the largest quake magnitude in a BST.
 // Pre:  BST has been initialized and populated.
 // Post: The largest quake will be visualized and returned.
 EarthquakeUSGS
-UsgsTree::getSmallestQuake(BSTElement<float, EarthquakeUSGS> *root,
-                           string color) {
+UsgsTree::getLargestQuake(BSTElement<float, EarthquakeUSGS> *root,
+                          string color) {
   return nullptr;
 }
 
