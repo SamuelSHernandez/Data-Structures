@@ -59,6 +59,7 @@ UsgsTree::getLargestQuake(BSTElement<float, EarthquakeUSGS> *root,
 int UsgsTree::countRange(float min, float max,
                          BSTElement<float, EarthquakeUSGS> *root,
                          string color) {
+  /*
   // base case
   if (!root)
     return 0;
@@ -66,6 +67,8 @@ int UsgsTree::countRange(float min, float max,
   // for efficiency
   if (root->getValue() == max && root->getValue() == min)
     return 1;
+*/
+  return 0;
 }
 
 // Function:  Finds all nodes in the BST that in the specified location.
