@@ -1,1 +1,4 @@
 run
+Player Luis has been added with a score of 10.
+Player Scores
+ 1. Luis           10

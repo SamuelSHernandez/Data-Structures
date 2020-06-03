@@ -21,14 +21,16 @@ using namespace std;
 
 void Manager::addPlayer(int &numPlayers, Player *&players, string name,
                         int score) {
-  int k = 0;
-  bool complete = false;
+
   if (numPlayers == 0) {
     Player *newArray = new Player[++numPlayers];
     *newArray = Player(score, name);
     players = newArray;
   } else if (numPlayers < 10) {
     Player *newArray = new Player[++numPlayers];
+
+    int k = 0;
+    bool complete = false;
 
     for (int i = 0; i < numPlayers; ++i) {
       if (k < numPlayers - 1) {
@@ -40,7 +42,7 @@ void Manager::addPlayer(int &numPlayers, Player *&players, string name,
           newArray[i] = players[k];
         }
       } else if (!complete) {
-        newArray[i] = players[k];
+        newArray[i] = Player(score, name);
       } else {
         newArray[i] = players[k];
       }
