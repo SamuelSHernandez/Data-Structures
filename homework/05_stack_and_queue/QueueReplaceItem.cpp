@@ -15,13 +15,20 @@
 // header.
 
 void QueueType::ReplaceItem(ItemType oldItem, ItemType newItem) {
-  // Function: Replaces item in
-  // copy the head of old to tail of new
-  int queueIndex = 0;
-  for (queueIndex = rear; queueIndex >= front; queueIndex--) {
-    if (items[queueIndex] == oldItem) {
-      break;
+
+  QueueType temp;
+  while (!this->IsEmpty()) {
+    ItemType item;
+    this->Dequeue(item);
+    if (item == oldItem) {
+      item = newItem;
     }
+    temp.Enqueue(item);
   }
-  items[queueIndex] = newItem;
+
+  while (!temp.IsEmpty()) {
+    ItemType item;
+    temp.Dequeue(item);
+    this->Enqueue(item);
+  }
 }

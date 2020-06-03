@@ -13,10 +13,19 @@ void StackType::ReplaceItem(ItemType oldItem, ItemType newItem) {
   // TO DO: put head of the stack into head of new stack.
   int stackIndex;
 
-  for (stackIndex = top; stackIndex != -1; stackIndex++) {
-    if (items[stackIndex] == oldItem) {
-      break;
+  StackType temp;
+  while (!this->IsEmpty()) {
+    ItemType item = this->Top();
+    this->Pop();
+    if (item == oldItem) {
+      item = newItem;
     }
+    temp.Push(item);
   }
-  items[stackIndex] = newItem;
+
+  while (!temp.IsEmpty()) {
+    ItemType item = temp.Top();
+    temp.Pop();
+    this->Push(item);
+  }
 }
