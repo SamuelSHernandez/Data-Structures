@@ -62,7 +62,7 @@ int UsgsTree::countRange(float min, float max,
 
   int counted_range = 0;
 
-  while (root->getLeft() > min && root->getRight() < max) {
+  while (root->getLeft() >= min && root->getRight() <= max) {
     counted_range++;
   }
   return counted_range;
