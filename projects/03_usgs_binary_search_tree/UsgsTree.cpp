@@ -64,7 +64,7 @@ int UsgsTree::countRange(float min, float max,
     return 0;
 
   // for efficiency
-  if (root->data == max && root->data == min)
+  if (root->getValue() == max && root->getValue() == min)
     return 1;
 }
 
