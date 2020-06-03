@@ -34,7 +34,7 @@ UsgsTree::getSmallestQuake(BSTElement<float, EarthquakeUSGS> *root,
     current = current->getLeft();
   }
 
-  return current->getMagnitude();
+  return current->getValue();
 }
 
 // Function: Finds the largest quake magnitude in a BST.
