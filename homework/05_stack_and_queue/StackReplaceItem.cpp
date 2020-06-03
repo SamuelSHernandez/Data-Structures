@@ -11,7 +11,6 @@
 
 void StackType::ReplaceItem(ItemType oldItem, ItemType newItem) {
   // TO DO: put head of the stack into head of new stack.
-  int stackIndex;
 
   StackType temp;
   while (!this->IsEmpty()) {
