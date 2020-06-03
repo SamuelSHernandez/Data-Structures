@@ -2,3 +2,51 @@ run
 Player Luis has been added with a score of 10.
 Player Scores
  1. Luis           10
+Player Alfred has been added with a score of 8.
+Player Scores
+ 1. Luis           10
+ 2. Alfred          8
+Player Josh has been added with a score of 8.
+Player Scores
+ 1. Luis           10
+ 2. Alfred          8
+ 3. Josh            8
+The score for Luis is 10
+Player Luis removed.
+Player Luis not found.
+Player Scores
+ 1. Alfred          8
+ 2. Josh            8
+Player Jose has been added with a score of 9.
+Player Enrique has been added with a score of 8.
+Player Lio has been added with a score of 5.
+Player Harry has been added with a score of 9.
+Player Sergio has been added with a score of 10.
+Player Samuel has been added with a score of 6.
+Player Brad has been added with a score of 10.
+Player Ceci has been added with a score of 9.
+Player Scores
+ 1. Sergio         10
+ 2. Brad           10
+ 3. Jose            9
+ 4. Harry           9
+ 5. Ceci            9
+ 6. Alfred          8
+ 7. Josh            8
+ 8. Enrique         8
+ 9. Samuel          6
+10. Lio             5
+The score for Lio is 5
+Player Aech has been added with a score of 11.
+Player Scores
+ 1. Aech           11
+ 2. Sergio         10
+ 3. Brad           10
+ 4. Jose            9
+ 5. Harry           9
+ 6. Ceci            9
+ 7. Alfred          8
+ 8. Josh            8
+ 9. Enrique         8
+10. Samuel          6
+Player Lio not found.
