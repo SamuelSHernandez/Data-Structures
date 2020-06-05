@@ -65,7 +65,7 @@ int UsgsTree::countRange(float min, float max,
     return 0;
   }
 
-  if (root->getKey() <= max && root->getValue() >= min) {
+  if (root->getKey() <= max && root->getKey() >= min) {
     root->setColor(Color(color));
     count++;
   }
