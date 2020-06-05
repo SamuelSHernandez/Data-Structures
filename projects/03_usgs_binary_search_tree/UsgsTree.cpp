@@ -60,12 +60,12 @@ int UsgsTree::countRange(float min, float max,
                          BSTElement<float, EarthquakeUSGS> *root,
                          string color) {
 
-  int count;
+  int count = 0;
   if (root == NULL) {
     return 0;
   }
 
-  if (root->getKey() == max && root->getValue() == min) {
+  if (root->getKey() <= max && root->getValue() >= min) {
     root->setColor(Color(color));
     count++;
   }
@@ -80,7 +80,23 @@ int UsgsTree::countRange(float min, float max,
 int UsgsTree::countByLocation(string location,
                               BSTElement<float, EarthquakeUSGS> *root,
                               string color) {
-  return 0;
+  int count = 0;
+  string compare = "";
+
+  if (root == NULL) {
+    return count;
+  }
+
+  compare = root->getValue().getLocation();
+  size_t found = compare.find(location);
+
+  if (found != = 1) {
+    root->setColor(Color(color));
+    count++
+  }
+
+  return count + countByLocation(location, root->getLeft(), color) +
+         countByLocation(location, root->getRight(), color);
 }
 
 // Function: Updates all nodes and edges with a visualization.
@@ -88,10 +104,49 @@ int UsgsTree::countByLocation(string location,
 // Post: Returns the number of quakes in the BST and visualizes them.
 int UsgsTree::countWithStyle(BSTElement<float, EarthquakeUSGS> *root,
                              string colorVertex, string colorEdge) {
-  return 0;
+  LinkVisualizer *edge;
+
+  // base case
+  if (root == NULL) {
+    return 0;
+  }
+
+  // vertex
+  root->setColor(Color(colorVertex));
+  // L edge
+  if (root->getLeft() != NULL) {
+    edge = root->getLinkVisualizer(root->getLeft());
+    edge->setColor(Color(colorEdge));
+  }
+
+  // R edge
+  if (root->getRight() != NULL) {
+    edge = root->getLinkVisualizer(root->getRight());
+    edge->setColor(Color(colorEdge));
+  }
+
+  return 1 + countWithStyle(root->getRight(), colorVertex, colorEdge) +
+         countWithStyle(root->getLeft(), colorVertex, colorEdge)
 }
 
 // Function: Resets the BST visualization back to the defaults.
 // Pre:  BST has been initialized and populated.
 // Post: The BST has no visualizations.
-void UsgsTree::resetVisualization(BSTElement<float, EarthquakeUSGS> *root) {}
+void UsgsTree::resetVisualization(BSTElement<float, EarthquakeUSGS> *root) {
+
+  LinkVisuyalizer *edge;
+
+  root->setColor(Color("blue"));
+
+  if (root->getLeft != NULL) {
+    edge = root->getLinkVisualizer(root->getLeft());
+    edge->setColor(Color("blue"));
+    resetVisualization(root->getLeft());
+  }
+
+  if (root->getRight != NULL) {
+    edge = root->getLinkVisualizer(root->getRight());
+    edge->setColor(Color("blue"));
+    resetVisualization(root->getRight());
+  }
+}
