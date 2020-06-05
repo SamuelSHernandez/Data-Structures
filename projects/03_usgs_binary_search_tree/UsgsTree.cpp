@@ -127,7 +127,7 @@ int UsgsTree::countWithStyle(BSTElement<float, EarthquakeUSGS> *root,
 
   return 1 + countWithStyle(root->getRight(), colorVertex, colorEdge) +
          countWithStyle(root->getLeft(), colorVertex, colorEdge)
-};
+}
 
 // Function: Resets the BST visualization back to the defaults.
 // Pre:  BST has been initialized and populated.
