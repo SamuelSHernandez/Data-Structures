@@ -92,7 +92,7 @@ int UsgsTree::countByLocation(string location,
 
   if (found != -1) {
     root->setColor(Color(color));
-    count++
+    count++;
   }
 
   return count + countByLocation(location, root->getLeft(), color) +
@@ -126,7 +126,7 @@ int UsgsTree::countWithStyle(BSTElement<float, EarthquakeUSGS> *root,
   }
 
   return 1 + countWithStyle(root->getRight(), colorVertex, colorEdge) +
-         countWithStyle(root->getLeft(), colorVertex, colorEdge)
+         countWithStyle(root->getLeft(), colorVertex, colorEdge);
 }
 
 // Function: Resets the BST visualization back to the defaults.
