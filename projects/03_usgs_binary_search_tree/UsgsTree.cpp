@@ -90,7 +90,7 @@ int UsgsTree::countByLocation(string location,
   compare = root->getValue().getLocation();
   size_t found = compare.find(location);
 
-  if (found != = 1) {
+  if (found != -1) {
     root->setColor(Color(color));
     count++
   }
@@ -127,14 +127,14 @@ int UsgsTree::countWithStyle(BSTElement<float, EarthquakeUSGS> *root,
 
   return 1 + countWithStyle(root->getRight(), colorVertex, colorEdge) +
          countWithStyle(root->getLeft(), colorVertex, colorEdge)
-}
+};
 
 // Function: Resets the BST visualization back to the defaults.
 // Pre:  BST has been initialized and populated.
 // Post: The BST has no visualizations.
 void UsgsTree::resetVisualization(BSTElement<float, EarthquakeUSGS> *root) {
 
-  LinkVisuyalizer *edge;
+  LinkVisualizer *edge;
 
   root->setColor(Color("blue"));
 
