@@ -138,13 +138,13 @@ void UsgsTree::resetVisualization(BSTElement<float, EarthquakeUSGS> *root) {
 
   root->setColor(Color("blue"));
 
-  if (root->getLeft != NULL) {
+  if (root->getLeft() != NULL) {
     edge = root->getLinkVisualizer(root->getLeft());
     edge->setColor(Color("blue"));
     resetVisualization(root->getLeft());
   }
 
-  if (root->getRight != NULL) {
+  if (root->getRight() != NULL) {
     edge = root->getLinkVisualizer(root->getRight());
     edge->setColor(Color("blue"));
     resetVisualization(root->getRight());
