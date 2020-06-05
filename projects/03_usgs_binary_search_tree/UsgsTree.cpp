@@ -33,7 +33,7 @@ UsgsTree::getSmallestQuake(BSTElement<float, EarthquakeUSGS> *root,
   while (current->getLeft() != NULL) {
     current = current->getLeft();
   }
-
+  current->setColor(Color(color));
   return current->getValue();
 }
 
@@ -49,7 +49,7 @@ UsgsTree::getLargestQuake(BSTElement<float, EarthquakeUSGS> *root,
   while (current->getRight() != NULL) {
     current = current->getRight();
   }
-
+  current->setColor(Color(color));
   return current->getValue();
 }
 
@@ -59,16 +59,19 @@ UsgsTree::getLargestQuake(BSTElement<float, EarthquakeUSGS> *root,
 int UsgsTree::countRange(float min, float max,
                          BSTElement<float, EarthquakeUSGS> *root,
                          string color) {
-  /*
-  // base case
-  if (!root)
-    return 0;
 
-  // for efficiency
-  if (root->getValue() == max && root->getValue() == min)
-    return 1;
-*/
-  return 0;
+  int count;
+  if (root == NULL) {
+    return 0;
+  }
+
+  if (root->getKey() == max && root->getValue() == min) {
+    root->setColor(Color(color));
+    count++;
+  }
+
+  return count + countRange(min, max, root->getLeft(), color) +
+         countRange(min, max, root->getRight(), color);
 }
 
 // Function:  Finds all nodes in the BST that in the specified location.
